@@ -177,7 +177,7 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   /* line 7, ../sass/partials/modules.scss */
   .ad-block .ad {
     width: 130px;
-    margin: 100px auto 0 auto; }
+    margin: 90px auto 0 auto; }
   /* line 11, ../sass/partials/modules.scss */
   .ad-block .supported-by {
     text-align: center;
