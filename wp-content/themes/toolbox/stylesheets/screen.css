@@ -168,56 +168,65 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
 #home-title {
   text-align: center; }
 
-/* line 5, ../sass/partials/modules.scss */
-.ad-block .supported-by {
-  text-align: center;
-  margin-bottom: 5px;
-  display: block;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 13px;
-  font-variant: small-caps; }
-/* line 13, ../sass/partials/modules.scss */
-.ad-block .fusionentire {
-  display: block;
-  background: rgba(255, 255, 255, 0.15);
-  overflow: hidden;
-  width: 260px;
-  height: 100px;
-  margin: 0 auto; }
-  /* line 20, ../sass/partials/modules.scss */
-  .ad-block .fusionentire a {
+/* line 4, ../sass/partials/modules.scss */
+.ad-block {
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35); }
+  /* line 7, ../sass/partials/modules.scss */
+  .ad-block .inner {
+    padding: 135px 20px 20px 20px; }
+  /* line 10, ../sass/partials/modules.scss */
+  .ad-block .supported-by {
+    text-align: center;
+    margin-bottom: 5px;
     display: block;
-    float: left;
-    width: 130px; }
-  /* line 25, ../sass/partials/modules.scss */
-  .ad-block .fusionentire .fusiontext {
-    float: right;
-    padding: 10px;
-    width: 110px;
-    line-height: 1.3;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 12px; }
-/* line 34, ../sass/partials/modules.scss */
-.ad-block .fusion-link {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
-  display: block;
-  font-variant: small-caps;
-  text-align: right;
-  line-height: 20px;
-  height: 20px;
-  text-align: center; }
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    font-variant: small-caps; }
+  /* line 18, ../sass/partials/modules.scss */
+  .ad-block .fusionentire {
+    display: block;
+    overflow: hidden;
+    width: 260px;
+    height: 100px;
+    margin: 0 auto; }
+    /* line 25, ../sass/partials/modules.scss */
+    .ad-block .fusionentire a {
+      display: block;
+      float: left;
+      width: 130px;
+      margin-right: 10px; }
+    /* line 31, ../sass/partials/modules.scss */
+    .ad-block .fusionentire .fusiontext {
+      float: right;
+      width: 120px;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      margin: 0; }
+  /* line 41, ../sass/partials/modules.scss */
+  .ad-block .fusion-link {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    font-variant: small-caps;
+    text-align: right;
+    line-height: 24px;
+    height: 24px;
+    text-align: left; }
 
-/* line 45, ../sass/partials/modules.scss */
+/* line 52, ../sass/partials/modules.scss */
 .item {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px; }
-  /* line 47, ../sass/partials/modules.scss */
+  /* line 54, ../sass/partials/modules.scss */
   .item .hentry {
     background: #f8f8f8; }
-    /* line 49, ../sass/partials/modules.scss */
+    /* line 56, ../sass/partials/modules.scss */
     .item .hentry .featured-image {
       border-bottom: 3px solid #444; }
