@@ -1,0 +1,12 @@
+/*
+Theme Name:     Toolbox
+Theme URI:      http: //thetoolbox.cc/
+Description:    Child theme for Construct
+Author:         Sacha Greif
+Author URI:     http: //sachagreif.com
+Template:       construct
+Version:        1
+*/
+
+@import url("../construct/style.css");
+@import url("stylesheets/screen.css");
