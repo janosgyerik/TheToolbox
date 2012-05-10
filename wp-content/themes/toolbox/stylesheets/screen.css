@@ -169,16 +169,38 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   text-align: center; }
 
 /* line 4, ../sass/partials/modules.scss */
+.item {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45); }
+  /* line 7, ../sass/partials/modules.scss */
+  .item .hentry {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    background: #f8f8f8; }
+    /* line 10, ../sass/partials/modules.scss */
+    .item .hentry .featured-image {
+      border-bottom: 3px solid #444; }
+
+/* line 15, ../sass/partials/modules.scss */
 .ad-block {
   background: rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.35); }
-  /* line 7, ../sass/partials/modules.scss */
+  /* line 18, ../sass/partials/modules.scss */
   .ad-block .ad {
     width: 130px;
     margin: 90px auto 0 auto; }
-  /* line 11, ../sass/partials/modules.scss */
+  /* line 22, ../sass/partials/modules.scss */
   .ad-block .supported-by {
     text-align: center;
     margin-bottom: 5px;
@@ -186,19 +208,19 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
     color: rgba(255, 255, 255, 0.5);
     font-size: 13px;
     font-variant: small-caps; }
-  /* line 19, ../sass/partials/modules.scss */
+  /* line 30, ../sass/partials/modules.scss */
   .ad-block .fusionentire {
     display: block;
     overflow: hidden;
     width: 130px;
     margin: 0 auto;
     text-align: center; }
-    /* line 26, ../sass/partials/modules.scss */
+    /* line 37, ../sass/partials/modules.scss */
     .ad-block .fusionentire a {
       display: block;
       width: 130px;
       height: 100px; }
-    /* line 33, ../sass/partials/modules.scss */
+    /* line 44, ../sass/partials/modules.scss */
     .ad-block .fusionentire .fusiontext {
       text-align: left;
       background: rgba(255, 255, 255, 0.1);
@@ -209,7 +231,7 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
       color: rgba(255, 255, 255, 0.8);
       font-size: 12px;
       margin: 0; }
-  /* line 45, ../sass/partials/modules.scss */
+  /* line 56, ../sass/partials/modules.scss */
   .ad-block .fusion-link {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.5);
@@ -218,17 +240,3 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
     line-height: 24px;
     height: 24px;
     text-align: center; }
-
-/* line 55, ../sass/partials/modules.scss */
-.item {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px; }
-  /* line 57, ../sass/partials/modules.scss */
-  .item .hentry {
-    background: #f8f8f8; }
-    /* line 59, ../sass/partials/modules.scss */
-    .item .hentry .featured-image {
-      border-bottom: 3px solid #444; }

@@ -22,9 +22,7 @@
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 
-	<?php if(get_option('dt_rss_url')): ?>
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php echo stripslashes(get_option('dt_rss_url')); ?>" />
-	<?php endif; ?>
+	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
