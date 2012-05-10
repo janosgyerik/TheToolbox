@@ -22,8 +22,6 @@
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
-
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_url').'?'.filemtime(get_stylesheet_directory().'/style.css'); ?>">
