@@ -41,3 +41,12 @@
 		line-height:20px;
 	}
 }
+.item{
+	@include border-radius(3px);
+	.hentry{
+		background:#f8f8f8;
+		.featured-image{
+			border-bottom:3px solid #444;
+		}
+	}
+}

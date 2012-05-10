@@ -7,7 +7,7 @@
 		<div id="masonry">
 
 			<?php 
-			
+			$i=0;
 			$slider = get_option('dt_slider'); 
 			
 			if($slider == 'true') get_template_part('includes/home-slider'); 
@@ -15,6 +15,7 @@
 			?>
 			
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<?php $i++; ?>
 			
 			<?php $tool_url = get_post_meta(get_the_ID(), 'dt_video', true); ?>
 			<!--BEGIN .item -->	
@@ -52,6 +53,19 @@
 			
 			<!--END .item -->	
 			</div>
+			<?php if($i==3){?>
+<!-- 				<div class="ad-block">
+					<div id="fusion_ad">
+						<span class="fusionentire">
+							<a href="http://adn.fusionads.net/click?creative_id=302&amp;publisher_id=160&amp;414833872070.74005" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">
+								<img src="http://view.atdmt.com/SHS/view/396506407/direct/01/" class="fusionimg" alt="Taste creative freedom. Access millions of high-res, royalty-free stock images." border="0" height="100" width="130">
+							</a>
+							<a href="http://adn.fusionads.net/click?creative_id=302&amp;publisher_id=160&amp;414833872070.74005" class="fusiontext" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">Taste creative freedom. Access millions of high-res, royalty-free stock images.</a>
+						</span>
+						<a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a>
+					</div>
+				</div> -->
+			<?php } ?>
 			<?php endwhile; endif; ?>
 			
 			<?php get_template_part('includes/index-loadmore'); ?>

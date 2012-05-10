@@ -41,7 +41,7 @@ body{
 	margin-bottom:20px;
 	#header-inner{
 		background:black(0.4);
-		@include border-radius(0 0 2px 2px);
+		@include border-radius(0 0 3px 3px);
 		.header-wrapper{
 			padding:20px;
 		}
