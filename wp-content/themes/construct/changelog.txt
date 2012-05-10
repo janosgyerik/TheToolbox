@@ -1,0 +1,66 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Construct Theme Changelog
+/*-----------------------------------------------------------------------------------*/
+
+
+Construct 1.6 - February 29, 2012
+
+	* Fixed featured image not showing in a single post if custom thumbnails were being used
+	* Fixed single showcase page displaying wrong in centred mode
+	* Fixed images stacking before slider kicks in (gallery format)
+	* IE8 fixes (gallery format display, load more issues, lightbox display issues)
+
+
+Construct 1.5 - February 22, 2012
+
+	* Fixed portfolio template
+	* Cleaned up search results page
+	* Added the ability for unlimited portfolios
+	* Slider images can now be any size
+	* Cleaned up 404 page
+	* Fixed tablet search results
+	* Minor CSS fixes
+	* Updated framework to Engine 1.5
+		* Fixed image resize script bug
+		* Fixed farbtastic enqueue bug
+		* Description updates
+		* Custom thumbnail fix
+		* Added dt_image() height fix
+
+
+Construct 1.4 - February 1, 2012
+
+	* Added search template
+	* Fixed gallery format bug
+	* Updated framework to Engine 1.4
+		* Fixed being unable to import demo content
+		* Translation fixes
+
+
+Construct 1.3 - January 26, 2012
+	
+	* Added centre layout option
+	* Fixed some responsive bugs on mobile
+	* Fixed full width template not spanning full width
+	* Fixed footer code output
+	* Updated framework to Engine 1.3
+
+
+Construct 1.2 - January 12, 2012
+
+	* Fixed comments on Showcase single
+	* Fixed fitVids issue preventing videos from displaying in lightbox
+	* Updated framework to Engine 1.2
+
+
+Construct 1.1 - January 10, 2012
+
+	* Fixed Showcase single video bug
+	* Removed comments area when comments disabled
+	* Mobile browser bug fixes and tweaks
+	* Other minor bug fixes
+
+
+Construct 1.0 - January 9, 2012
+
+	* Initial release
