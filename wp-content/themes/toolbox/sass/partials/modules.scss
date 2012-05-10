@@ -4,8 +4,9 @@
 .ad-block{
 	background:black(0.2);
 	@include box-shadow(0 1px 0 white(0.1), inset 0 1px 1px black(0.35));
-	.inner{
-		padding:135px 20px 20px 20px;
+	.ad{
+		width:130px;
+		margin:100px auto 0 auto;
 	}
 	.supported-by{
 		text-align:center;
@@ -19,19 +20,20 @@
 		display:block;
 		// background:white(0.15);
 		overflow:hidden;
-		width:260px;
-		height:100px;
+		width:130px;
 		margin:0 auto;
+		text-align:center;
 		a{
 			display:block;
-			float:left;
+			// float:left;
 			width:130px;
-			margin-right:10px;
+			// margin-right:10px;
 		}
 		.fusiontext{
-			float:right;
-			// padding:10px;
-			width:120px;
+			text-align:left;
+			background:white(0.1);
+			padding:10px;
+			width:110px;
 			line-height:1.3;
 			color:white(0.8);
 			font-size:12px;
@@ -43,10 +45,9 @@
 		color:white(0.5);
 		display:block;
 		font-variant:small-caps;
-		text-align:right;
 		line-height:24px;
 		height:24px;
-		text-align:left;
+		text-align:center;
 	}
 }
 .item{

@@ -99,18 +99,6 @@
 		
 					<!-- END #logo -->
 				</div>
-				<!-- 	
-					<div class="ad-block">
-						<div id="fusion_ad">
-							<span class="fusionentire">
-								<a href="http://adn.fusionads.net/click?creative_id=302&amp;publisher_id=160&amp;414833872070.74005" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">
-									<img src="http://view.atdmt.com/SHS/view/396506407/direct/01/" class="fusionimg" alt="Taste creative freedom. Access millions of high-res, royalty-free stock images." border="0" height="100" width="130">
-								</a>
-								<a href="http://adn.fusionads.net/click?creative_id=302&amp;publisher_id=160&amp;414833872070.74005" class="fusiontext" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">Taste creative freedom. Access millions of high-res, royalty-free stock images.</a>
-							</span>
-							<a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a>
-						</div>
-					</div> -->
 					<!-- BEGIN #primary-menu -->
 					<div id="primary-menu" class="clearfix">
 		
