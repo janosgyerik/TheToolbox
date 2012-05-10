@@ -13,6 +13,8 @@
 
 	<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
 
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri();?>/images/favicon.ico">
+
 	<?php if(get_option('dt_custom_favicon') != '') : ?>
 	<link rel="shortcut icon" href="<?php echo stripslashes(get_option('dt_custom_favicon')); ?>">
 	<link rel="apple-touch-icon" href="<?php echo stripslashes(get_option('dt_custom_favicon')); ?>">
