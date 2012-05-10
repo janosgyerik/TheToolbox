@@ -53,8 +53,10 @@
 			
 			<!--END .item -->	
 			</div>
-			<?php if($i==3){?>
-<!-- 				<div class="ad-block">
+			<?php if($i==5){
+				$i++;
+				?>
+				<div class="ad-block item normal" data-order='1'>
 					<div id="fusion_ad">
 						<span class="fusionentire">
 							<a href="http://adn.fusionads.net/click?creative_id=302&amp;publisher_id=160&amp;414833872070.74005" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">
@@ -64,7 +66,7 @@
 						</span>
 						<a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a>
 					</div>
-				</div> -->
+				</div>
 			<?php } ?>
 			<?php endwhile; endif; ?>
 			

@@ -67,10 +67,14 @@ body {
   margin-bottom: 0; }
 
 /* line 10, ../sass/partials/layout.scss */
+#breadcrumb-wrap {
+  display: none; }
+
+/* line 13, ../sass/partials/layout.scss */
 #logo {
   height: auto;
   width: auto; }
-  /* line 14, ../sass/partials/layout.scss */
+  /* line 17, ../sass/partials/layout.scss */
   #logo #site-title a {
     overflow: hidden;
     text-indent: -9000px;
@@ -79,27 +83,27 @@ body {
     width: 124px;
     background: url(../images/toolbox-logo.png) no-repeat; }
 
-/* line 22, ../sass/partials/layout.scss */
+/* line 25, ../sass/partials/layout.scss */
 #primary-menu {
   float: right; }
-  /* line 25, ../sass/partials/layout.scss */
+  /* line 28, ../sass/partials/layout.scss */
   #primary-menu ul li {
     margin: 0; }
-    /* line 27, ../sass/partials/layout.scss */
+    /* line 30, ../sass/partials/layout.scss */
     #primary-menu ul li a {
       padding: 0 15px; }
-  /* line 31, ../sass/partials/layout.scss */
+  /* line 34, ../sass/partials/layout.scss */
   #primary-menu ul ul {
     background: none;
     padding-top: 10px; }
 
-/* line 37, ../sass/partials/layout.scss */
+/* line 40, ../sass/partials/layout.scss */
 #header {
   background: none;
   padding-top: 0;
   padding-bottom: 0;
   margin-bottom: 20px; }
-  /* line 42, ../sass/partials/layout.scss */
+  /* line 45, ../sass/partials/layout.scss */
   #header #header-inner {
     background: rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 0 0 3px 3px;
@@ -107,28 +111,28 @@ body {
     -ms-border-radius: 0 0 3px 3px;
     -o-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px; }
-    /* line 45, ../sass/partials/layout.scss */
+    /* line 48, ../sass/partials/layout.scss */
     #header #header-inner .header-wrapper {
       padding: 20px; }
 
-/* line 50, ../sass/partials/layout.scss */
+/* line 53, ../sass/partials/layout.scss */
 #page {
   padding-bottom: 0; }
 
-/* line 53, ../sass/partials/layout.scss */
+/* line 56, ../sass/partials/layout.scss */
 #bottom {
   margin-top: 0; }
 
-/* line 56, ../sass/partials/layout.scss */
+/* line 59, ../sass/partials/layout.scss */
 #footer {
   padding-top: 0; }
 
-/* line 59, ../sass/partials/layout.scss */
+/* line 62, ../sass/partials/layout.scss */
 #credits {
   text-align: center; }
 
 /* line 1, ../sass/partials/typography.scss */
-body, #home-title, .item .meta-category, .item .post-title a, .item .post-title {
+body, #home-title, .item .meta-category, .item .post-title a, .item .post-title, .single .post-title, .page .page-title {
   font-family: kulturista-web, serif; }
 
 /* line 4, ../sass/partials/typography.scss */
@@ -164,57 +168,56 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title 
 #home-title {
   text-align: center; }
 
-/* line 4, ../sass/partials/modules.scss */
-.ad-block {
-  float: right;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55); }
-  /* line 7, ../sass/partials/modules.scss */
-  .ad-block .supported-by {
-    text-align: center;
-    margin-bottom: 5px;
+/* line 5, ../sass/partials/modules.scss */
+.ad-block .supported-by {
+  text-align: center;
+  margin-bottom: 5px;
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-variant: small-caps; }
+/* line 13, ../sass/partials/modules.scss */
+.ad-block .fusionentire {
+  display: block;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  width: 260px;
+  height: 100px;
+  margin: 0 auto; }
+  /* line 20, ../sass/partials/modules.scss */
+  .ad-block .fusionentire a {
     display: block;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-    font-variant: small-caps; }
-  /* line 15, ../sass/partials/modules.scss */
-  .ad-block .fusionentire {
-    display: block;
-    background: rgba(255, 255, 255, 0.15);
-    overflow: hidden;
-    width: 260px;
-    height: 100px; }
-    /* line 21, ../sass/partials/modules.scss */
-    .ad-block .fusionentire a {
-      display: block;
-      float: left;
-      width: 130px; }
-    /* line 26, ../sass/partials/modules.scss */
-    .ad-block .fusionentire .fusiontext {
-      float: right;
-      padding: 10px;
-      width: 110px;
-      line-height: 1.3;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 12px; }
-  /* line 35, ../sass/partials/modules.scss */
-  .ad-block .fusion-link {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.5);
-    display: block;
-    font-variant: small-caps;
-    text-align: right;
-    line-height: 20px; }
+    float: left;
+    width: 130px; }
+  /* line 25, ../sass/partials/modules.scss */
+  .ad-block .fusionentire .fusiontext {
+    float: right;
+    padding: 10px;
+    width: 110px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px; }
+/* line 34, ../sass/partials/modules.scss */
+.ad-block .fusion-link {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  font-variant: small-caps;
+  text-align: right;
+  line-height: 20px;
+  height: 20px;
+  text-align: center; }
 
-/* line 44, ../sass/partials/modules.scss */
+/* line 45, ../sass/partials/modules.scss */
 .item {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px; }
-  /* line 46, ../sass/partials/modules.scss */
+  /* line 47, ../sass/partials/modules.scss */
   .item .hentry {
     background: #f8f8f8; }
-    /* line 48, ../sass/partials/modules.scss */
+    /* line 49, ../sass/partials/modules.scss */
     .item .hentry .featured-image {
       border-bottom: 3px solid #444; }
