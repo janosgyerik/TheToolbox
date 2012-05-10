@@ -54,6 +54,40 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
+/* line 1, ../sass/partials/layout.scss */
+#primary-menu {
+  float: right; }
+  /* line 4, ../sass/partials/layout.scss */
+  #primary-menu ul li {
+    margin: 0; }
+    /* line 6, ../sass/partials/layout.scss */
+    #primary-menu ul li a {
+      padding: 0 15px; }
+
+/* line 1, ../sass/partials/typography.scss */
+body, #home-title, .item .meta-category, .item .post-title a, .item .post-title {
+  font-family: kulturista-web, serif; }
+
+/* line 4, ../sass/partials/typography.scss */
+.item .post-title a, .item .post-title {
+  font-size: 24px;
+  line-height: 1.3;
+  margin-bottom: 5px; }
+
+/* line 9, ../sass/partials/typography.scss */
+.item .post-content {
+  font-size: 14px;
+  line-height: 1.5; }
+
+/* line 13, ../sass/partials/typography.scss */
+.widget ul li {
+  margin-bottom: 10px; }
+
+/* line 16, ../sass/partials/typography.scss */
+#primary-menu ul li a {
+  font-size: 13px;
+  font-weight: 500; }
+
 /* line 1, ../sass/partials/modules.scss */
 #home-title {
   text-align: center; }
