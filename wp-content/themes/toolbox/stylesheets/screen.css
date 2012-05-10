@@ -55,14 +55,77 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 /* line 1, ../sass/partials/layout.scss */
+body {
+  background: url(../../construct/images/header-bg.jpg); }
+
+/* line 4, ../sass/partials/layout.scss */
+#top-bar {
+  display: none; }
+
+/* line 7, ../sass/partials/layout.scss */
+.layout-centered #main {
+  margin-bottom: 0; }
+
+/* line 10, ../sass/partials/layout.scss */
+#logo {
+  height: auto;
+  width: auto; }
+  /* line 14, ../sass/partials/layout.scss */
+  #logo #site-title a {
+    overflow: hidden;
+    text-indent: -9000px;
+    display: block;
+    height: 30px;
+    width: 124px;
+    background: url(../images/toolbox-logo.png) no-repeat; }
+
+/* line 22, ../sass/partials/layout.scss */
 #primary-menu {
   float: right; }
-  /* line 4, ../sass/partials/layout.scss */
+  /* line 25, ../sass/partials/layout.scss */
   #primary-menu ul li {
     margin: 0; }
-    /* line 6, ../sass/partials/layout.scss */
+    /* line 27, ../sass/partials/layout.scss */
     #primary-menu ul li a {
       padding: 0 15px; }
+  /* line 31, ../sass/partials/layout.scss */
+  #primary-menu ul ul {
+    background: none;
+    padding-top: 10px; }
+
+/* line 37, ../sass/partials/layout.scss */
+#header {
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 20px; }
+  /* line 42, ../sass/partials/layout.scss */
+  #header #header-inner {
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    -ms-border-radius: 0 0 2px 2px;
+    -o-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px; }
+    /* line 45, ../sass/partials/layout.scss */
+    #header #header-inner .header-wrapper {
+      padding: 20px; }
+
+/* line 50, ../sass/partials/layout.scss */
+#page {
+  padding-bottom: 0; }
+
+/* line 53, ../sass/partials/layout.scss */
+#bottom {
+  margin-top: 0; }
+
+/* line 56, ../sass/partials/layout.scss */
+#footer {
+  padding-top: 0; }
+
+/* line 59, ../sass/partials/layout.scss */
+#credits {
+  text-align: center; }
 
 /* line 1, ../sass/partials/typography.scss */
 body, #home-title, .item .meta-category, .item .post-title a, .item .post-title {
@@ -80,10 +143,19 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title 
   line-height: 1.5; }
 
 /* line 13, ../sass/partials/typography.scss */
+#home-title {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  font-size: 18px;
+  border-top: 1px dotted rgba(255, 255, 255, 0.2);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  padding: 20px 0; }
+
+/* line 21, ../sass/partials/typography.scss */
 .widget ul li {
   margin-bottom: 10px; }
 
-/* line 16, ../sass/partials/typography.scss */
+/* line 24, ../sass/partials/typography.scss */
 #primary-menu ul li a {
   font-size: 13px;
   font-weight: 500; }
@@ -91,3 +163,44 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title 
 /* line 1, ../sass/partials/modules.scss */
 #home-title {
   text-align: center; }
+
+/* line 4, ../sass/partials/modules.scss */
+.ad-block {
+  float: right;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55); }
+  /* line 7, ../sass/partials/modules.scss */
+  .ad-block .supported-by {
+    text-align: center;
+    margin-bottom: 5px;
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    font-variant: small-caps; }
+  /* line 15, ../sass/partials/modules.scss */
+  .ad-block .fusionentire {
+    display: block;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    width: 260px;
+    height: 100px; }
+    /* line 21, ../sass/partials/modules.scss */
+    .ad-block .fusionentire a {
+      display: block;
+      float: left;
+      width: 130px; }
+    /* line 26, ../sass/partials/modules.scss */
+    .ad-block .fusionentire .fusiontext {
+      float: right;
+      padding: 10px;
+      width: 110px;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px; }
+  /* line 35, ../sass/partials/modules.scss */
+  .ad-block .fusion-link {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    font-variant: small-caps;
+    text-align: right;
+    line-height: 20px; }

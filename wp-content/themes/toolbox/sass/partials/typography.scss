@@ -10,6 +10,14 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title{
 	font-size:14px;
 	line-height:1.5;
 }
+#home-title{
+	color:white(0.9);
+	text-shadow:0 1px 1px black(0.55);
+	font-size:18px;
+	border-top: 1px dotted white(0.2);
+	border-bottom: 1px dotted white(0.2);
+	padding:20px 0;
+}
 .widget ul li{
 	margin-bottom:10px;
 }

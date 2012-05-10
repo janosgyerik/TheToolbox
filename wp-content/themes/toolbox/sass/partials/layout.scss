@@ -1,3 +1,24 @@
+body{
+	background:url(../../construct/images/header-bg.jpg);
+}
+#top-bar{
+	display:none;
+}
+.layout-centered #main{
+	margin-bottom:0;
+}
+#logo{
+	height:auto;
+	width:auto;
+	#site-title{
+		a{
+			@include hide-text();
+			height:30px;
+			width:124px;
+			background:url(../images/toolbox-logo.png) no-repeat;
+		}
+	}
+}
 #primary-menu{
 	float:right;
 	ul{
@@ -7,5 +28,34 @@
 				padding:0 15px;
 			}
 		}
+		ul{
+			background:none;
+			padding-top:10px;
+		}
 	}
+}
+#header{
+	background:none;
+	padding-top:0;
+	padding-bottom:0;
+	margin-bottom:20px;
+	#header-inner{
+		background:black(0.4);
+		@include border-radius(0 0 2px 2px);
+		.header-wrapper{
+			padding:20px;
+		}
+	}
+}
+#page{
+	padding-bottom:0;
+}
+#bottom{
+	margin-top:0;
+}
+#footer{
+	padding-top:0;
+}
+#credits{
+	text-align:center;
 }
