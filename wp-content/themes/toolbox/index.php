@@ -76,7 +76,6 @@
 			<?php endwhile; endif; ?>
 			
 			<?php get_template_part('includes/index-loadmore'); ?>
-			<hr class="separator"/>
 		<!--END #masonry -->
 		</div>
 		
