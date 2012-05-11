@@ -65,7 +65,7 @@
 								<a href="http://sachagreif.com/ebook" title="" target="_blank">
 									<img src="<?php echo get_stylesheet_directory_uri();?>/images/ebook-banner.png" class="fusionimg" alt="My eBook will show you how to design a web app from scratch for only $5.99." border="0" height="100" width="130">
 								</a>
-								<a href="http://sachagreif.com/ebook" class="fusiontext" title="My eBook will show you how to design a web app from scratch, for only $5.99." target="_top">My eBook will show you how to design a web app from scratch, for only $5.99.</a>
+								<a href="http://sachagreif.com/ebook" class="fusiontext" title="My eBook will show you how to design a web app from scratch, for only $5.99." target="_blank">My eBook will show you how to design a web app from scratch, for only $5.99.</a>
 							</span>
 							<!-- <a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a> -->
 						</div>
