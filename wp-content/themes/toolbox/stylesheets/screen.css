@@ -398,3 +398,7 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   /* line 124, ../sass/partials/modules.scss */
   .share-widget.active .share-options {
     display: block; }
+
+/* line 137, ../sass/partials/modules.scss */
+.ratings .meta {
+  display: none; }
