@@ -399,6 +399,42 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   .share-widget.active .share-options {
     display: block; }
 
-/* line 137, ../sass/partials/modules.scss */
-.ratings .meta {
-  display: none; }
+/* line 130, ../sass/partials/modules.scss */
+.item .post-content {
+  height: 70px; }
+/* line 133, ../sass/partials/modules.scss */
+.item .ratings {
+  padding: 0 0 0 65px;
+  margin: 0 0 20px 0; }
+  /* line 136, ../sass/partials/modules.scss */
+  .item .ratings ul {
+    height: 30px !important;
+    width: 110px !important;
+    background: #dddddd url("../images/stamp2.png") no-repeat;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px; }
+    /* line 141, ../sass/partials/modules.scss */
+    .item .ratings ul li {
+      background: none !important;
+      height: 30px !important;
+      width: 110px !important; }
+    /* line 146, ../sass/partials/modules.scss */
+    .item .ratings ul:hover {
+      background-position: center -30px; }
+    /* line 149, ../sass/partials/modules.scss */
+    .item .ratings ul.rated {
+      background-position: center bottom; }
+    /* line 153, ../sass/partials/modules.scss */
+    .item .ratings ul .s1 a {
+      height: 30px;
+      width: 130px;
+      background: none !important; }
+  /* line 160, ../sass/partials/modules.scss */
+  .item .ratings .meta {
+    display: none; }
+/* line 164, ../sass/partials/modules.scss */
+.item .rated ul {
+  background-position: center bottom; }

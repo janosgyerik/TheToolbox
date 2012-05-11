@@ -45,9 +45,9 @@
 					<div class="post-content">
 						<?php dt_excerpt(20); ?>
 					<!--END .post-content -->
-						<?php do_action("insert_rating"); ?> 
 					</div>
-										
+					<?php do_action("insert_rating"); ?> 
+			
 					<span class="meta-published"><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' '.  __('ago', 'engine'); ?></span>
 	
 				<!--END .hentry-->  
