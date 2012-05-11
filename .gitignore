@@ -2,3 +2,4 @@
 *.scssc
 *.log
 w3-total-cache-config-preview.php
+wp-content/w3tc/*
