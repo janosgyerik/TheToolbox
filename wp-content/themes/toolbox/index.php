@@ -1,6 +1,4 @@
-
 <?php get_header(); ?>
-<?php if(false){ ?>
 
 	<!--BEGIN #content -->
     <div id="content">
@@ -91,5 +89,5 @@
 		</div>
 
 	</div><!-- #content -->
-<?php } ?>
+
 <?php get_footer(); ?>
