@@ -67,7 +67,7 @@
 								</a>
 								<a href="http://sachagreif.com/ebook" class="fusiontext" title="My eBook will show you how to design a web app from scratch, for only $5.99." target="_top">My eBook will show you how to design a web app from scratch, for only $5.99.</a>
 							</span>
-							<a class="fusion-link hidden" href="http://fusionads.net">Powered by Fusion</a>
+							<!-- <a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a> -->
 						</div>
 					</div>
 				</div>
