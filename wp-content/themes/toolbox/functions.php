@@ -19,6 +19,7 @@ function remove_scripts() {
 add_action('init','remove_scripts', 100);
 
 function remove_more_scripts(){
+	wp_dequeue_script('easing');
 	wp_dequeue_script('isotope');
 	wp_dequeue_script('slidesjs');
 	wp_dequeue_script('colorbox');
