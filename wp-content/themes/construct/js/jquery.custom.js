@@ -64,10 +64,10 @@ jQuery(document).ready(function() {
 
 		    var parent = jQuery(this).parent().outerWidth();
 
-		    if(parent < 140) {
-				var diff = 140 - parent;
+		    if(parent < 150) {
+				var diff = 150 - parent;
 				jQuery(this).css({
-					width: '140px',
+					width: '150px',
 					marginLeft: -diff / 2
 				});
 			}
