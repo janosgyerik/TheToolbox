@@ -13,7 +13,7 @@ add_action('wp_head', 'load_typekit');
 function remove_scripts() {
 	wp_dequeue_script('tabs');
 	wp_dequeue_script('dt_custom');
-	wp_register_script('toolbox', get_stylesheet_directory_uri() . '/javascripts/toolbox', 'jquery', '1.0', TRUE);
+	wp_register_script('toolbox', get_stylesheet_directory_uri() . '/javascripts/toolbox.js', 'jquery', '1.0', TRUE);
 	wp_enqueue_script('toolbox');
 }
 add_action('init','remove_scripts', 100);

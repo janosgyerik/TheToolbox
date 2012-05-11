@@ -18,9 +18,17 @@ jQuery(document).ready(function() {
 
 
 	$(".share-link").click(function(){
-		$(this).parent().toggleClass("active");
-		$(".overlay").toggleClass("hidden");
+		var shareWidget=$(this).parent();
+		if(!shareWidget.hasClass("active")){
+			$(this).parent().toggleClass("active");
+			$(".overlay").toggleClass("hidden");
+		}
 		return false;
+	});
+	$(".share-widget").hover(function(){
+		$(this).addClass("active");
+	},function(){
+		$(this).removeClass("active");
 	});
 	$(".overlay").click(function(){
 		$(this).addClass("hidden");
