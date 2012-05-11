@@ -58,52 +58,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   background: url(../../construct/images/header-bg.jpg); }
 
-/* line 4, ../sass/partials/layout.scss */
+/* line 5, ../sass/partials/layout.scss */
 #top-bar {
   display: none; }
 
-/* line 7, ../sass/partials/layout.scss */
+/* line 8, ../sass/partials/layout.scss */
 .layout-centered #main {
   margin-bottom: 0; }
 
-/* line 10, ../sass/partials/layout.scss */
+/* line 11, ../sass/partials/layout.scss */
 #breadcrumb-wrap {
   display: none; }
 
-/* line 13, ../sass/partials/layout.scss */
-#logo {
-  height: auto;
-  width: auto; }
-  /* line 17, ../sass/partials/layout.scss */
-  #logo #site-title a {
-    overflow: hidden;
-    text-indent: -9000px;
-    display: block;
-    height: 30px;
-    width: 124px;
-    background: url(../images/toolbox-logo.png) no-repeat; }
-
-/* line 25, ../sass/partials/layout.scss */
-#primary-menu {
-  float: right; }
-  /* line 28, ../sass/partials/layout.scss */
-  #primary-menu ul li {
-    margin: 0; }
-    /* line 30, ../sass/partials/layout.scss */
-    #primary-menu ul li a {
-      padding: 0 15px; }
-  /* line 34, ../sass/partials/layout.scss */
-  #primary-menu ul ul {
-    background: none;
-    padding-top: 10px; }
-
-/* line 40, ../sass/partials/layout.scss */
+/* line 14, ../sass/partials/layout.scss */
 #header {
   background: none;
   padding-top: 0;
   padding-bottom: 0;
-  margin-bottom: 20px; }
-  /* line 45, ../sass/partials/layout.scss */
+  margin-bottom: 20px;
+  z-index: 70; }
+  /* line 24, ../sass/partials/layout.scss */
   #header #header-inner {
     background: rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 0 0 3px 3px;
@@ -111,27 +85,54 @@ body {
     -ms-border-radius: 0 0 3px 3px;
     -o-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px; }
-    /* line 48, ../sass/partials/layout.scss */
-    #header #header-inner .header-wrapper {
+    /* line 29, ../sass/partials/layout.scss */
+    #header #header-inner .header-wrapper #logo {
+      height: auto;
+      width: auto;
       padding: 20px; }
+      /* line 34, ../sass/partials/layout.scss */
+      #header #header-inner .header-wrapper #logo #site-title a {
+        overflow: hidden;
+        text-indent: -9000px;
+        display: block;
+        height: 30px;
+        width: 124px;
+        background: url(../images/toolbox-logo.png) no-repeat; }
+    /* line 42, ../sass/partials/layout.scss */
+    #header #header-inner .header-wrapper .nav-container {
+      float: right; }
+      /* line 44, ../sass/partials/layout.scss */
+      #header #header-inner .header-wrapper .nav-container #primary-menu {
+        float: left;
+        margin: 17px 20px 0 0; }
+        /* line 48, ../sass/partials/layout.scss */
+        #header #header-inner .header-wrapper .nav-container #primary-menu ul li {
+          margin: 0; }
+          /* line 50, ../sass/partials/layout.scss */
+          #header #header-inner .header-wrapper .nav-container #primary-menu ul li a {
+            padding: 0 15px; }
+        /* line 54, ../sass/partials/layout.scss */
+        #header #header-inner .header-wrapper .nav-container #primary-menu ul ul {
+          background: none;
+          padding-top: 10px; }
 
-/* line 53, ../sass/partials/layout.scss */
+/* line 64, ../sass/partials/layout.scss */
 #page {
   padding-bottom: 0; }
 
-/* line 56, ../sass/partials/layout.scss */
+/* line 67, ../sass/partials/layout.scss */
 #bottom {
   margin-top: 0; }
 
-/* line 59, ../sass/partials/layout.scss */
+/* line 70, ../sass/partials/layout.scss */
 #footer {
   padding-top: 0; }
 
-/* line 62, ../sass/partials/layout.scss */
+/* line 73, ../sass/partials/layout.scss */
 #credits {
   text-align: center; }
 
-/* line 65, ../sass/partials/layout.scss */
+/* line 76, ../sass/partials/layout.scss */
 .separator {
   width: 100%;
   border-top: 1px dotted rgba(255, 255, 255, 0.2);
@@ -140,24 +141,38 @@ body {
   background: none;
   display: none; }
 
+/* line 84, ../sass/partials/layout.scss */
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0; }
+
+/* line 93, ../sass/partials/layout.scss */
+.hidden {
+  display: none; }
+
 /*---------------------------------------------------------------------------*/
 /*  Media Queries
 /*---------------------------------------------------------------------------*/
 @media screen and (min-width: 1035px) {
-  /* line 77, ../sass/partials/layout.scss */
+  /* line 100, ../sass/partials/layout.scss */
   .layout-centered #container {
     width: 940px; }
 
-  /* line 80, ../sass/partials/layout.scss */
+  /* line 103, ../sass/partials/layout.scss */
   .item:nth-of-type(3n) {
     margin-right: 0; }
 
-  /* line 83, ../sass/partials/layout.scss */
+  /* line 106, ../sass/partials/layout.scss */
   .separator:nth-of-type(3n) {
     display: block; } }
 /* for 1035px or less - Tablets */
 @media screen and (max-width: 1035px) {
-  /* line 90, ../sass/partials/layout.scss */
+  /* line 113, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     float: none;
@@ -166,29 +181,29 @@ body {
     padding: 0;
     width: 620px; }
 
-  /* line 97, ../sass/partials/layout.scss */
+  /* line 120, ../sass/partials/layout.scss */
   .separator:nth-of-type(even) {
     display: block; }
 
-  /* line 100, ../sass/partials/layout.scss */
+  /* line 123, ../sass/partials/layout.scss */
   .item:nth-of-type(2n) {
     margin-right: 0; } }
 /* for 680px or less - Mobiles */
 @media screen and (max-width: 680px) {
-  /* line 107, ../sass/partials/layout.scss */
+  /* line 130, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     width: 300px;
     padding: 0 5px; }
 
-  /* line 111, ../sass/partials/layout.scss */
+  /* line 134, ../sass/partials/layout.scss */
   .separator {
     display: block; }
 
-  /* line 114, ../sass/partials/layout.scss */
+  /* line 137, ../sass/partials/layout.scss */
   .item {
     margin-right: 0; } }
-/* line 119, ../sass/partials/layout.scss */
+/* line 142, ../sass/partials/layout.scss */
 .separator:last-child {
   display: block; }
 
@@ -301,3 +316,75 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
     line-height: 24px;
     height: 24px;
     text-align: center; }
+
+/* line 69, ../sass/partials/modules.scss */
+.share-widget {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAaklEQVQYV2NkYGAwBuKzQAwC9UA8C4ifQ/n/GaEMkCIfIG6E8iWB9DMgZoQpAOncgmTSfyBbCmQSSAFIEqYTZNIZkE6YSSAGyDi4nUC2CbKb4CphdqK7CaYAbieSb8BuAikASSKblIbsJgCKXBfTNjWx1AAAAABJRU5ErkJggg==);
+  -webkit-box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1), inset 1px 0 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1), inset 1px 0 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 0 0 rgba(255, 255, 255, 0.1), inset 1px 0 0 rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 0 0 3px 0;
+  -moz-border-radius: 0 0 3px 0;
+  -ms-border-radius: 0 0 3px 0;
+  -o-border-radius: 0 0 3px 0;
+  border-radius: 0 0 3px 0;
+  height: 70px;
+  width: 90px;
+  float: left; }
+  /* line 77, ../sass/partials/modules.scss */
+  .share-widget .share-link {
+    background: url("../images/share.png") no-repeat top;
+    display: block;
+    overflow: hidden;
+    text-indent: -9000px;
+    display: block;
+    height: 100%;
+    width: 100%; }
+    /* line 83, ../sass/partials/modules.scss */
+    .share-widget .share-link:hover {
+      background-position: bottom; }
+  /* line 87, ../sass/partials/modules.scss */
+  .share-widget .share-options {
+    display: none;
+    position: relative;
+    background: #ffffff;
+    padding: 20px 10px 10px 10px;
+    z-index: 100;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); }
+    /* line 95, ../sass/partials/modules.scss */
+    .share-widget .share-options:after {
+      bottom: 100%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none; }
+    /* line 104, ../sass/partials/modules.scss */
+    .share-widget .share-options:after {
+      border-bottom-color: #ffffff;
+      border-width: 5px;
+      left: 50%;
+      margin-left: -5px; }
+    /* line 110, ../sass/partials/modules.scss */
+    .share-widget .share-options div {
+      margin-bottom: 10px; }
+    /* line 113, ../sass/partials/modules.scss */
+    .share-widget .share-options .twitter {
+      padding-left: 7px; }
+    /* line 116, ../sass/partials/modules.scss */
+    .share-widget .share-options .facebook {
+      padding-left: 5px; }
+    /* line 119, ../sass/partials/modules.scss */
+    .share-widget .share-options .google {
+      padding-left: 10px; }
+  /* line 124, ../sass/partials/modules.scss */
+  .share-widget.active .share-options {
+    display: block; }

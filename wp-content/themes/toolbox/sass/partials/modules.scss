@@ -66,3 +66,63 @@
 		text-align:center;
 	}
 }
+.share-widget{
+	// background:white(0.1);
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAaklEQVQYV2NkYGAwBuKzQAwC9UA8C4ifQ/n/GaEMkCIfIG6E8iWB9DMgZoQpAOncgmTSfyBbCmQSSAFIEqYTZNIZkE6YSSAGyDi4nUC2CbKb4CphdqK7CaYAbieSb8BuAikASSKblIbsJgCKXBfTNjWx1AAAAABJRU5ErkJggg==);
+	@include box-shadow(-1px 0 0 white(0.1), inset 1px 0 0 black(0.5));
+	@include border-radius(0 0 3px 0);
+	height:70px;
+	width:90px;
+	float:left;
+	.share-link{
+		background:url("../images/share.png") no-repeat top;
+		display:block;
+		@include hide-text;
+		height:100%;
+		width:100%;
+		&:hover{
+			background-position:bottom;
+		}
+	}
+	.share-options{
+		display:none;
+		position: relative;
+		background: #ffffff;
+		padding:20px 10px 10px 10px;
+		z-index:100;
+		@include border-radius(3px);
+		@include box-shadow(0 1px 3px black(0.55));
+		&:after {
+			bottom: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-bottom-color: #ffffff;
+			border-width: 5px;
+			left: 50%;
+			margin-left: -5px;
+		}
+		div{
+			margin-bottom:10px;
+		}
+		.twitter{
+			padding-left:7px;
+		}
+		.facebook{
+			padding-left:5px;
+		}
+		.google{
+			padding-left:10px;
+		}
+	}
+	&.active{
+		.share-options{
+			display:block;
+		}
+	}
+}

@@ -109,7 +109,6 @@ function dt_script_enqueues() {
 		wp_enqueue_script('superfish');
 		wp_enqueue_script('tabs');
 		wp_enqueue_script('dt_custom');
-
 	}
 
 	if(isset($_GET['page']) && ($_GET['page']=='dt-options') || isset($_GET['page']) && ($_GET['page']=='dt-settings-manager')) {

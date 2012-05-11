@@ -95,19 +95,34 @@
 		
 					<!-- END #logo -->
 				</div>
+				<div class="nav-container clearfix">
 					<!-- BEGIN #primary-menu -->
 					<div id="primary-menu" class="clearfix">
 		
 						<?php if ( has_nav_menu( 'primary-menu' ) ) : wp_nav_menu( array( 'theme_location' => 'primary-menu' ) ); endif; ?>
-		
+						
 					<!-- END #primary-menu -->
 					</div>
-
-
+					<div class="share-widget">
+						<a class="share-link" href="#">Share</a>
+						<div class="share-options">
+							<div class="twitter">
+								<a href="https://twitter.com/share" data-count="vertical" class="twitter-share-button" data-via="SachaGreif">Tweet</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+							</div>
+							<div class="facebook">
+								<div class="fb-like" data-send="false" data-layout="box_count" data-width="70" data-show-faces="false"></div>
+							</div>
+							<div class="google">
+								<!-- Place this tag where you want the +1 button to render -->
+								<g:plusone size="tall"></g:plusone>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- /#header-inner -->
-			
+			</div>
 		<!-- END #header -->
 		</div>
 

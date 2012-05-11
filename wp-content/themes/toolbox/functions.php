@@ -11,14 +11,21 @@ function load_typekit(){
 add_action('wp_head', 'load_typekit');
 
 function remove_scripts() {
-	remove_action('wp_print_scripts', 'dt_theme_script_enqueues', 0);
+	wp_dequeue_script('tabs');
+	wp_dequeue_script('dt_custom');
+	wp_register_script('toolbox', get_stylesheet_directory_uri() . '/javascripts/toolbox', 'jquery', '1.0', TRUE);
+	wp_enqueue_script('toolbox');
+}
+add_action('init','remove_scripts', 100);
+
+function remove_more_scripts(){
 	wp_dequeue_script('isotope');
 	wp_dequeue_script('slidesjs');
 	wp_dequeue_script('colorbox');
 	wp_dequeue_script('fitvids');
 	wp_dequeue_script('imagesLoaded');
 }
-add_action('after_setup_theme','remove_scripts');
+add_action('wp_print_scripts', 'remove_more_scripts', 100);
 
 
 ?>

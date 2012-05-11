@@ -43,7 +43,6 @@ add_action('init', 'dt_register_menu');
 /* ==  Script Enqueues  ==============================*/
 
 function dt_theme_script_enqueues() {
-
 	if (!is_admin()) {
 
 		if(!is_single()) {
@@ -69,7 +68,7 @@ function dt_theme_script_enqueues() {
 
 }
 
-// add_action('wp_print_scripts', 'dt_theme_script_enqueues');
+add_action('wp_print_scripts', 'dt_theme_script_enqueues');
 
 
 /* ==  Style Enqueues  ==============================*/
@@ -79,7 +78,7 @@ function dt_theme_style_enqueues() {
        wp_enqueue_style( 'colorbox');
 }
 
-// add_action('wp_print_styles', 'dt_theme_style_enqueues');
+add_action('wp_print_styles', 'dt_theme_style_enqueues');
 
 
 /* ==  Sidebars  ==============================*/

@@ -1,5 +1,6 @@
 body{
 	background:url(../../construct/images/header-bg.jpg);
+	// padding-top:90px;
 }
 #top-bar{
 	display:none;
@@ -10,43 +11,53 @@ body{
 #breadcrumb-wrap{
 	display:none;
 }
-#logo{
-	height:auto;
-	width:auto;
-	#site-title{
-		a{
-			@include hide-text();
-			height:30px;
-			width:124px;
-			background:url(../images/toolbox-logo.png) no-repeat;
-		}
-	}
-}
-#primary-menu{
-	float:right;
-	ul{
-		li{
-			margin:0;
-			a{
-				padding:0 15px;
-			}
-		}
-		ul{
-			background:none;
-			padding-top:10px;
-		}
-	}
-}
 #header{
 	background:none;
 	padding-top:0;
 	padding-bottom:0;
 	margin-bottom:20px;
+	z-index: 70;
+	// position: fixed;
+	// top:0;
+	// left:50%;
+	// margin-left:-500px;
 	#header-inner{
 		background:black(0.4);
+		// background:rgba(50, 50, 50, 0.9);
 		@include border-radius(0 0 3px 3px);
 		.header-wrapper{
-			padding:20px;
+			#logo{
+				height:auto;
+				width:auto;
+				padding:20px;
+				#site-title{
+					a{
+						@include hide-text();
+						height:30px;
+						width:124px;
+						background:url(../images/toolbox-logo.png) no-repeat;
+					}
+				}
+			}
+			.nav-container{
+				float:right;
+				#primary-menu{
+					float:left;
+					margin:17px 20px 0 0;
+					ul{
+						li{
+							margin:0;
+							a{
+								padding:0 15px;
+							}
+						}
+						ul{
+							background:none;
+							padding-top:10px;
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -68,6 +79,18 @@ body{
 	height:0;
 	margin:20px 0;
 	background:none;
+	display:none;
+}
+.overlay{
+	position:fixed;
+	height:100%;
+	width:100%;
+	z-index:50;
+	background:black(0.3);
+	top:0;
+	left:0;
+}
+.hidden{
 	display:none;
 }
 /*---------------------------------------------------------------------------*/

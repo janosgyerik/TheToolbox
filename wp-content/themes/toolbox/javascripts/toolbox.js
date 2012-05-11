@@ -12,18 +12,32 @@
 
 jQuery(document).ready(function() {
 
-alert("bla");
+/*-----------------------------------------------------------------------------------*/
+/*	Toolbox
+/*-----------------------------------------------------------------------------------*/
+
+
+	$(".share-link").click(function(){
+		$(this).parent().toggleClass("active");
+		$(".overlay").toggleClass("hidden");
+		return false;
+	});
+	$(".overlay").click(function(){
+		$(this).addClass("hidden");
+		$(".share-widget").removeClass("active");
+	});
+
 /*-----------------------------------------------------------------------------------*/
 /*	Extras
 /*-----------------------------------------------------------------------------------*/
 
-	jQuery(".tabber ul.tabs").tabs(".tabber div.panes > div", {
-		effect: 'fade'
-	});
+	// jQuery(".tabber ul.tabs").tabs(".tabber div.panes > div", {
+	// 	effect: 'fade'
+	// });
 
-	jQuery(".accordion").tabs(".accordion div.pane", {
-		tabs: '.trigger', effect: 'slide', initialIndex: null
-	});
+	// jQuery(".accordion").tabs(".accordion div.pane", {
+	// 	tabs: '.trigger', effect: 'slide', initialIndex: null
+	// });
 
 	jQuery('.toggle .trigger').bind('click', function() {
 		var maketoggle = jQuery(this).parent('.toggle').find('.pane');
@@ -77,121 +91,6 @@ alert("bla");
 
 		}
 	);
-	
-/*-----------------------------------------------------------------------------------*/
-/*	FitVids - http://fitvidsjs.com/
-/*-----------------------------------------------------------------------------------*/
-	
-	if(jQuery().fitVids) {
-		jQuery(".single #page").fitVids();
-	}
-
-
-/*-----------------------------------------------------------------------------------*/
-/*	Plus and overlay hover icons
-/*-----------------------------------------------------------------------------------*/
-
-	function dt_hovers() {
-
-		jQuery('a').hover(function () {
-
-			$plus = jQuery(this).find('.plus');
-
-			$plus.css({opacity: 0, display: 'inline'});
-			$plus.stop().animate({opacity: 1}, 100);
-
-		}, function () {
-
-			$plus = jQuery(this).find('.plus');
-
-			$plus.stop().animate({opacity: 0}, 100);
-
-		});
-
-		jQuery('a.read-more').hover(function () {
-
-			$plus = jQuery(this).find('.plus span');
-
-			jQuery(this).stop().animate({paddingRight: 30}, 200);
-
-			$plus.fadeIn(200);
-
-		}, function () {
-
-			jQuery(this).stop().animate({paddingRight: 20}, 200);
-
-		});
-
-		$image = jQuery('.featured-image, .overlay-icon');
-
-		$image.hover( function() {
-
-			$overlay = jQuery(this).find('.overlay-icon');
-
-			$overlay.css({opacity: 0, display: 'block'});
-			$overlay.stop().animate({opacity: 1}, 100);
-
-			jQuery(this).find('a img').animate({
-				opacity: 0.9
-			}, 200);
-
-		}, function() {
-
-			$overlay = jQuery(this).find('.overlay-icon');
-			$overlay.stop().animate({opacity: 0}, 100);
-
-			jQuery(this).find('a img').stop().animate({
-				opacity: 1
-			}, 200);
-
-		});
-
-		jQuery('.item').hover( function() {
-
-			jQuery(this).find('.meta-published').css({opacity: 0, display: 'inline'});
-			jQuery(this).find('.meta-published').stop().animate({opacity: 1}, 100);
-
-		}, function() {
-
-			jQuery(this).find('.meta-published').stop().animate({
-				opacity: 0
-			}, 200);
-
-		});
-
-	}
-
-	dt_hovers();
-
-
-/*-----------------------------------------------------------------------------------*/
-/*	Lightbox
-/*-----------------------------------------------------------------------------------*/
-
-	function dt_lightbox() {
-
-		if(jQuery().colorbox) {
-
-			jQuery(".gallery a").not('#slide-controls a').colorbox();
-
-			jQuery("a.colorbox-video").colorbox({
-				inline: true,
-				href: jQuery(this).attr('href')
-			});
-
-			jQuery("a.colorbox-image, a.colorbox-gallery").each(function(){
-			 	jQuery(this).colorbox({
-			 		rel: jQuery(this).attr('data-gallery'),
-			 		maxWidth: '90%',
-			 		maxHeight: '90%'
-			 	});
-			});
-
-		}
-
-	}
-
-	dt_lightbox();
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -416,43 +315,6 @@ alert("bla");
 
 
 /*-----------------------------------------------------------------------------------*/
-/*	Tabber widget
-/*-----------------------------------------------------------------------------------*/
-
-	var list = '<ul class="tabs clearfix">';
-	jQuery('#sidebar .tabber').find('h3.widget-title').each(function () {
-	    var the_title = jQuery(this).html();
-	    list += '<li><a href="#">' + the_title + '</a></li>';
-	});
-	list += '</ul>';
-	jQuery('#sidebar .tabber').prepend(list);
-	jQuery("#sidebar .tabber .tabs").tabs("#sidebar .tabber .widget", { // requires jquerytools.js
-	    //effect: 'fade'
-	});
-
-
-/*-----------------------------------------------------------------------------------*/
-/*	Randomizer
-/*-----------------------------------------------------------------------------------*/
-
-    jQuery.fn.randomize = function (childElem) {
-        return this.each(function () {
-            var jQuerythis = jQuery(this);
-            var elems = jQuerythis.find(childElem);
-            elems.sort(function () {
-                return (Math.round(Math.random()) - 0.5);
-            });
-            jQuerythis.remove(childElem);
-            for (var i = 0; i < elems.length; i++)
-            jQuerythis.append(elems[i]);
-        });
-    }
-
-    //RANDOMIZE (ADS)
-	jQuery(".ads-inside.random").randomize("a");
-
-
-/*-----------------------------------------------------------------------------------*/
 /*	Contact Form
 /*-----------------------------------------------------------------------------------*/
 
@@ -481,108 +343,6 @@ alert("bla");
 	    });
 	    return false;
 	});
-
-
-
-/*-----------------------------------------------------------------------------------*/
-/*	Slides.js Settings - http://slidesjs.com/
-/*-----------------------------------------------------------------------------------*/
-
-	function dt_sliderInit() {
-	
-		if(jQuery().slides) {
-
-			$slides = jQuery('#slides');
-
-			$controls = jQuery('.next, .prev');
-			
-			$slides.slides({
-				effect: 'fade',
-				fadeSpeed: 600,
-				crossfade: false,
-				generatePagination: false,
-				preload: false,
-				autoHeight: false,
-				play: parseInt($slides.attr('data-auto')),
-
-				animationStart: function(currrent) {
-
-					$image = $slides.find('.featured-image');
-
-					$image.animate({
-						right: -420,
-						left: 420
-					}, 800, 'easeInOutExpo', function () {
-
-						$image.css({
-							right: 420,
-							left: -420
-						});
-
-					});
-
-				},
-				animationComplete: function(currrent) {
-
-					$image = $slides.find('.featured-image');
-
-					$image.animate({
-						left: 0,
-						right: 0
-					}, 800, 'easeInOutExpo');
-
-					//console.log('image put in place');
-
-				}
-
-			});
-
-			jQuery('#single-slides').slides({
-				effect: 'fade',
-				fadeSpeed: 400,
-				crossfade: false,
-				generatePagination: false,
-				preload: false,
-				autoHeight: true,
-				slidesLoaded: function () { 
-			
-					$control = jQuery("#single-slides .slides_control"); 
-						
-					jQuery('.slides_control').imagesLoaded( function() {
-						
-						$imageHeight = jQuery('.slides_control div:first img').height();
-						
-						jQuery('#single-slides .slides_container').css({
-							height: 'auto'
-						});
-						
-						$control.css({
-							height: $imageHeight,
-							opacity: 0
-						});
-						
-						$control.animate({ 
-							opacity: 1 
-						}, 200,function() {
-							
-							jQuery('#single-slides .slides_container').css({
-								background: 'none'
-							});
-						
-						} );
-						
-						//console.log('Image Height: '+$imageHeight);
-						
-					});
-					
-				}
-			});
-
-		}
-		
-	}
-
-	dt_sliderInit();
 
 
 /*-----------------------------------------------------------------------------------*/
