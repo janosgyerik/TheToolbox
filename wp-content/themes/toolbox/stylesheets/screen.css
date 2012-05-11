@@ -67,6 +67,71 @@ body {
   margin-bottom: 0; }
 
 /* line 10, ../sass/partials/layout.scss */
+#breadcrumb-wrap {
+  display: none; }
+
+/* line 13, ../sass/partials/layout.scss */
+#logo {
+  height: auto;
+  width: auto; }
+  /* line 17, ../sass/partials/layout.scss */
+  #logo #site-title a {
+    overflow: hidden;
+    text-indent: -9000px;
+    display: block;
+    height: 30px;
+    width: 124px;
+    background: url(../images/toolbox-logo.png) no-repeat; }
+
+/* line 25, ../sass/partials/layout.scss */
+#primary-menu {
+  float: right; }
+  /* line 28, ../sass/partials/layout.scss */
+  #primary-menu ul li {
+    margin: 0; }
+    /* line 30, ../sass/partials/layout.scss */
+    #primary-menu ul li a {
+      padding: 0 15px; }
+  /* line 34, ../sass/partials/layout.scss */
+  #primary-menu ul ul {
+    background: none;
+    padding-top: 10px; }
+
+/* line 40, ../sass/partials/layout.scss */
+#header {
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 20px; }
+  /* line 45, ../sass/partials/layout.scss */
+  #header #header-inner {
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -ms-border-radius: 0 0 3px 3px;
+    -o-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px; }
+    /* line 48, ../sass/partials/layout.scss */
+    #header #header-inner .header-wrapper {
+      padding: 20px; }
+
+/* line 53, ../sass/partials/layout.scss */
+#page {
+  padding-bottom: 0; }
+
+/* line 56, ../sass/partials/layout.scss */
+#bottom {
+  margin-top: 0; }
+
+/* line 59, ../sass/partials/layout.scss */
+#footer {
+  padding-top: 0; }
+
+/* line 62, ../sass/partials/layout.scss */
+#credits {
+  text-align: center; }
+
+/* line 65, ../sass/partials/layout.scss */
 .separator {
   width: 100%;
   border-top: 1px dotted rgba(255, 255, 255, 0.2);
@@ -79,20 +144,20 @@ body {
 /*  Media Queries
 /*---------------------------------------------------------------------------*/
 @media screen and (min-width: 1035px) {
-  /* line 22, ../sass/partials/layout.scss */
+  /* line 77, ../sass/partials/layout.scss */
   .layout-centered #container {
     width: 940px; }
 
-  /* line 25, ../sass/partials/layout.scss */
+  /* line 80, ../sass/partials/layout.scss */
   .item:nth-of-type(3n) {
     margin-right: 0; }
 
-  /* line 28, ../sass/partials/layout.scss */
+  /* line 83, ../sass/partials/layout.scss */
   .separator:nth-of-type(3n) {
     display: block; } }
 /* for 1035px or less - Tablets */
 @media screen and (max-width: 1035px) {
-  /* line 35, ../sass/partials/layout.scss */
+  /* line 90, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     float: none;
@@ -101,92 +166,31 @@ body {
     padding: 0;
     width: 620px; }
 
-  /* line 42, ../sass/partials/layout.scss */
+  /* line 97, ../sass/partials/layout.scss */
   .separator:nth-of-type(even) {
     display: block; }
 
-  /* line 45, ../sass/partials/layout.scss */
+  /* line 100, ../sass/partials/layout.scss */
   .item:nth-of-type(2n) {
     margin-right: 0; } }
 /* for 680px or less - Mobiles */
 @media screen and (max-width: 680px) {
-  /* line 52, ../sass/partials/layout.scss */
+  /* line 107, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     width: 300px;
     padding: 0 5px; }
 
-  /* line 56, ../sass/partials/layout.scss */
+  /* line 111, ../sass/partials/layout.scss */
   .separator {
     display: block; }
 
-  /* line 59, ../sass/partials/layout.scss */
+  /* line 114, ../sass/partials/layout.scss */
   .item {
     margin-right: 0; } }
-/* line 64, ../sass/partials/layout.scss */
-#breadcrumb-wrap {
-  display: none; }
-
-/* line 67, ../sass/partials/layout.scss */
-#logo {
-  height: auto;
-  width: auto; }
-  /* line 71, ../sass/partials/layout.scss */
-  #logo #site-title a {
-    overflow: hidden;
-    text-indent: -9000px;
-    display: block;
-    height: 30px;
-    width: 124px;
-    background: url(../images/toolbox-logo.png) no-repeat; }
-
-/* line 79, ../sass/partials/layout.scss */
-#primary-menu {
-  float: right; }
-  /* line 82, ../sass/partials/layout.scss */
-  #primary-menu ul li {
-    margin: 0; }
-    /* line 84, ../sass/partials/layout.scss */
-    #primary-menu ul li a {
-      padding: 0 15px; }
-  /* line 88, ../sass/partials/layout.scss */
-  #primary-menu ul ul {
-    background: none;
-    padding-top: 10px; }
-
-/* line 94, ../sass/partials/layout.scss */
-#header {
-  background: none;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 20px; }
-  /* line 99, ../sass/partials/layout.scss */
-  #header #header-inner {
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-border-radius: 0 0 3px 3px;
-    -moz-border-radius: 0 0 3px 3px;
-    -ms-border-radius: 0 0 3px 3px;
-    -o-border-radius: 0 0 3px 3px;
-    border-radius: 0 0 3px 3px; }
-    /* line 102, ../sass/partials/layout.scss */
-    #header #header-inner .header-wrapper {
-      padding: 20px; }
-
-/* line 107, ../sass/partials/layout.scss */
-#page {
-  padding-bottom: 0; }
-
-/* line 110, ../sass/partials/layout.scss */
-#bottom {
-  margin-top: 0; }
-
-/* line 113, ../sass/partials/layout.scss */
-#footer {
-  padding-top: 0; }
-
-/* line 116, ../sass/partials/layout.scss */
-#credits {
-  text-align: center; }
+/* line 119, ../sass/partials/layout.scss */
+.separator:last-child {
+  display: block; }
 
 /* line 1, ../sass/partials/typography.scss */
 body, #home-title, .item .meta-category, .item .post-title a, .item .post-title, .single .post-title, .page .page-title {
