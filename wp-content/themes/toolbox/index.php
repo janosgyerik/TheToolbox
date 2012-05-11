@@ -15,11 +15,12 @@
 			?>
 			
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<?php $i++; ?>
-			
-			<?php $tool_url = get_post_meta(get_the_ID(), 'dt_video', true); ?>
+			<?php 
+			$i++; 
+			$tool_url = get_post_meta(get_the_ID(), 'dt_video', true);
+			?>
 			<!--BEGIN .item -->	
-			<div class="item normal" data-order='1'>
+			<div class="item normal <?php if($i%3==0){echo "last";} ?>" data-order='1'>
 			
 				<!--BEGIN .hentry -->
 				<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -56,7 +57,7 @@
 			<?php if($i==5){
 				$i++;
 				?>
-				<div class="ad-block item normal" data-order='1'>
+				<div class="ad-block item normal <?php if($i%3==0){echo "last";} ?>" data-order='1'>
 					<div class="ad">
 						<div id="fusion_ad">
 							<span class="fusionentire">
@@ -70,6 +71,11 @@
 					</div>
 				</div>
 			<?php } ?>
+			<?php 
+				if($i%3==0){
+					echo '<hr class="separator"/>';
+				}
+			?>
 			<?php endwhile; endif; ?>
 			
 			<?php get_template_part('includes/index-loadmore'); ?>

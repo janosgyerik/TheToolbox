@@ -11,6 +11,16 @@
 			border-bottom:3px solid #444;
 		}
 	}
+	&.last{
+		margin-right:0px;
+	}
+}
+.separator{
+	width:100%;
+	border-top: 1px dotted white(0.2);
+	height:0;
+	margin:20px 0;
+	background:none;
 }
 .ad-block{
 	background:black(0.2);
