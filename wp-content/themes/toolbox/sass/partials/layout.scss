@@ -7,9 +7,60 @@ body{
 .layout-centered #main{
 	margin-bottom:0;
 }
-.layout-centered #container{
-	width:940px;
+.separator{
+	width:100%;
+	border-top: 1px dotted white(0.2);
+	height:0;
+	margin:20px 0;
+	background:none;
+	display:none;
 }
+/*---------------------------------------------------------------------------*/
+/*  Media Queries
+/*---------------------------------------------------------------------------*/
+@media screen and (min-width: 1035px) {
+	.layout-centered #container{
+		width:940px;
+	}
+	.item:nth-of-type(3n){
+		margin-right:0;
+	}
+	.separator:nth-of-type(3n){
+		display:block;
+	}
+}
+/* for 1035px or less - Tablets */
+@media screen and (max-width: 1035px) {
+	.layout-centered #container,
+	#container {
+		float: none;
+		overflow: hidden;
+		margin: 0 auto;
+		padding: 0;
+		width: 620px;
+	}
+	.separator:nth-of-type(even){
+		display:block;
+	}
+	.item:nth-of-type(2n){
+		margin-right:0;
+	}
+}
+/* for 680px or less - Mobiles */
+@media screen and (max-width: 680px) {	
+	.layout-centered #container,
+	#container {
+		width: 300px;
+		padding: 0 5px;
+	}
+	.separator{
+		display:block;
+	}
+	.item{
+		margin-right:0;
+	}
+}
+
 #breadcrumb-wrap{
 	display:none;
 }
