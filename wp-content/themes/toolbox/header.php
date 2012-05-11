@@ -26,8 +26,6 @@
 
 	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_url').'?'.filemtime(get_stylesheet_directory().'/style.css'); ?>">
 
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/custom-style.css'.'?'.filemtime(get_stylesheet_directory().'/custom-style.css'); ?>">
-
 	<?php if(get_option('dt_custom_css') && get_option('dt_custom_css')!=""): ?>
 	<style type="text/css">
 		<?php echo stripslashes(get_option('dt_custom_css')); ?>
