@@ -1,5 +1,6 @@
-<?php get_header(); ?>
+<?php if(false){ ?>
 
+<?php get_header(); ?>
 	<!--BEGIN #content -->
     <div id="content">
     	
@@ -91,3 +92,4 @@
 	</div><!-- #content -->
 
 <?php get_footer(); ?>
+<?php } ?>
