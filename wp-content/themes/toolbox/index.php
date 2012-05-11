@@ -62,12 +62,12 @@
 					<div class="ad">
 						<div id="fusion_ad">
 							<span class="fusionentire">
-								<a href="#" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">
-									<img src="<?php echo get_stylesheet_directory_uri();?>/images/fusionad.jpg" class="fusionimg" alt="Taste creative freedom. Access millions of high-res, royalty-free stock images." border="0" height="100" width="130">
+								<a href="http://sachagreif.com/ebook" title="" target="_blank">
+									<img src="<?php echo get_stylesheet_directory_uri();?>/images/ebook-banner.png" class="fusionimg" alt="My eBook will show you how to design a web app from scratch for only $5.99." border="0" height="100" width="130">
 								</a>
-								<a href="#" class="fusiontext" title="Taste creative freedom. Access millions of high-res, royalty-free stock images." target="_top">Taste creative freedom. Access millions of high-res, royalty-free stock images.</a>
+								<a href="http://sachagreif.com/ebook" class="fusiontext" title="My eBook will show you how to design a web app from scratch, for only $5.99." target="_top">My eBook will show you how to design a web app from scratch, for only $5.99.</a>
 							</span>
-							<a class="fusion-link" href="http://fusionads.net">Powered by Fusion</a>
+							<a class="fusion-link hidden" href="http://fusionads.net">Powered by Fusion</a>
 						</div>
 					</div>
 				</div>
