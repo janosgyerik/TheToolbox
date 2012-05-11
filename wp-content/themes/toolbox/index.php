@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php if(false){?>
+<?php if(true){?>
 	<!--BEGIN #content -->
     <div id="content">
     	
