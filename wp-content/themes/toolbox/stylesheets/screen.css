@@ -462,5 +462,5 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   .item .ratings .meta {
     display: none; }
 /* line 164, ../sass/partials/modules.scss */
-.item .rated ul {
+.item .rated ul, .item .rated ul:hover, .item .loading ul {
   background-position: center bottom; }
