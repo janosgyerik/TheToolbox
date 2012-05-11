@@ -123,6 +123,20 @@ body{
 }
 /* for 1035px or less - Tablets */
 @media screen and (max-width: 1035px) {
+	#logo{
+		float:left;
+	}
+	#primary-menu{
+		margin: 17px 20px 0 0;
+		position:static;
+		left:auto;
+		padding-top:0;
+		ul{
+			li{
+				right:auto;
+			}
+		}
+	}
 	.layout-centered #container,
 	#container {
 		float: none;
@@ -139,7 +153,17 @@ body{
 	}
 }
 /* for 680px or less - Mobiles */
-@media screen and (max-width: 680px) {	
+@media screen and (max-width: 680px) {
+	#logo{
+		float:none;
+		h1{
+			width:124px;
+			margin:0 auto;
+		}
+	}
+	.nav-container{
+		display:none;
+	}
 	.layout-centered #container,
 	#container {
 		width: 300px;
