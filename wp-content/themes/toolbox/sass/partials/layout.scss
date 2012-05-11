@@ -1,5 +1,6 @@
 body{
 	background:url(../../construct/images/header-bg.jpg);
+	background:url(../images/background.png);
 	// padding-top:90px;
 }
 #top-bar{
@@ -66,9 +67,12 @@ body{
 }
 #bottom{
 	margin-top:0;
+	height:auto;
+	background:#111
 }
 #footer{
 	padding-top:0;
+	background:none;
 }
 #credits{
 	text-align:center;

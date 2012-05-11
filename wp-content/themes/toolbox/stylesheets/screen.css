@@ -56,28 +56,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 1, ../sass/partials/layout.scss */
 body {
-  background: url(../../construct/images/header-bg.jpg); }
+  background: url(../../construct/images/header-bg.jpg);
+  background: url(../images/background.png); }
 
-/* line 5, ../sass/partials/layout.scss */
+/* line 6, ../sass/partials/layout.scss */
 #top-bar {
   display: none; }
 
-/* line 8, ../sass/partials/layout.scss */
+/* line 9, ../sass/partials/layout.scss */
 .layout-centered #main {
   margin-bottom: 0; }
 
-/* line 11, ../sass/partials/layout.scss */
+/* line 12, ../sass/partials/layout.scss */
 #breadcrumb-wrap {
   display: none; }
 
-/* line 14, ../sass/partials/layout.scss */
+/* line 15, ../sass/partials/layout.scss */
 #header {
   background: none;
   padding-top: 0;
   padding-bottom: 0;
   margin-bottom: 20px;
   z-index: 70; }
-  /* line 24, ../sass/partials/layout.scss */
+  /* line 25, ../sass/partials/layout.scss */
   #header #header-inner {
     background: rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 0 0 3px 3px;
@@ -85,12 +86,12 @@ body {
     -ms-border-radius: 0 0 3px 3px;
     -o-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px; }
-    /* line 29, ../sass/partials/layout.scss */
+    /* line 30, ../sass/partials/layout.scss */
     #header #header-inner .header-wrapper #logo {
       height: auto;
       width: auto;
       padding: 20px; }
-      /* line 34, ../sass/partials/layout.scss */
+      /* line 35, ../sass/partials/layout.scss */
       #header #header-inner .header-wrapper #logo #site-title a {
         overflow: hidden;
         text-indent: -9000px;
@@ -98,41 +99,44 @@ body {
         height: 30px;
         width: 124px;
         background: url(../images/toolbox-logo.png) no-repeat; }
-    /* line 42, ../sass/partials/layout.scss */
+    /* line 43, ../sass/partials/layout.scss */
     #header #header-inner .header-wrapper .nav-container {
       float: right; }
-      /* line 44, ../sass/partials/layout.scss */
+      /* line 45, ../sass/partials/layout.scss */
       #header #header-inner .header-wrapper .nav-container #primary-menu {
         float: left;
         margin: 17px 20px 0 0; }
-        /* line 48, ../sass/partials/layout.scss */
+        /* line 49, ../sass/partials/layout.scss */
         #header #header-inner .header-wrapper .nav-container #primary-menu ul li {
           margin: 0; }
-          /* line 50, ../sass/partials/layout.scss */
+          /* line 51, ../sass/partials/layout.scss */
           #header #header-inner .header-wrapper .nav-container #primary-menu ul li a {
             padding: 0 15px; }
-        /* line 54, ../sass/partials/layout.scss */
+        /* line 55, ../sass/partials/layout.scss */
         #header #header-inner .header-wrapper .nav-container #primary-menu ul ul {
           background: none;
           padding-top: 10px; }
 
-/* line 64, ../sass/partials/layout.scss */
+/* line 65, ../sass/partials/layout.scss */
 #page {
   padding-bottom: 0; }
 
-/* line 67, ../sass/partials/layout.scss */
+/* line 68, ../sass/partials/layout.scss */
 #bottom {
-  margin-top: 0; }
-
-/* line 70, ../sass/partials/layout.scss */
-#footer {
-  padding-top: 0; }
+  margin-top: 0;
+  height: auto;
+  background: #111111; }
 
 /* line 73, ../sass/partials/layout.scss */
+#footer {
+  padding-top: 0;
+  background: none; }
+
+/* line 77, ../sass/partials/layout.scss */
 #credits {
   text-align: center; }
 
-/* line 76, ../sass/partials/layout.scss */
+/* line 80, ../sass/partials/layout.scss */
 .separator {
   width: 100%;
   border-top: 1px dotted rgba(255, 255, 255, 0.2);
@@ -141,7 +145,7 @@ body {
   background: none;
   display: none; }
 
-/* line 84, ../sass/partials/layout.scss */
+/* line 88, ../sass/partials/layout.scss */
 .overlay {
   position: fixed;
   height: 100%;
@@ -151,7 +155,7 @@ body {
   top: 0;
   left: 0; }
 
-/* line 93, ../sass/partials/layout.scss */
+/* line 97, ../sass/partials/layout.scss */
 .hidden {
   display: none; }
 
@@ -159,20 +163,20 @@ body {
 /*  Media Queries
 /*---------------------------------------------------------------------------*/
 @media screen and (min-width: 1035px) {
-  /* line 100, ../sass/partials/layout.scss */
+  /* line 104, ../sass/partials/layout.scss */
   .layout-centered #container {
     width: 940px; }
 
-  /* line 103, ../sass/partials/layout.scss */
+  /* line 107, ../sass/partials/layout.scss */
   .item:nth-of-type(3n) {
     margin-right: 0; }
 
-  /* line 106, ../sass/partials/layout.scss */
+  /* line 110, ../sass/partials/layout.scss */
   .separator:nth-of-type(3n) {
     display: block; } }
 /* for 1035px or less - Tablets */
 @media screen and (max-width: 1035px) {
-  /* line 113, ../sass/partials/layout.scss */
+  /* line 117, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     float: none;
@@ -181,29 +185,29 @@ body {
     padding: 0;
     width: 620px; }
 
-  /* line 120, ../sass/partials/layout.scss */
+  /* line 124, ../sass/partials/layout.scss */
   .separator:nth-of-type(even) {
     display: block; }
 
-  /* line 123, ../sass/partials/layout.scss */
+  /* line 127, ../sass/partials/layout.scss */
   .item:nth-of-type(2n) {
     margin-right: 0; } }
 /* for 680px or less - Mobiles */
 @media screen and (max-width: 680px) {
-  /* line 130, ../sass/partials/layout.scss */
+  /* line 134, ../sass/partials/layout.scss */
   .layout-centered #container,
   #container {
     width: 300px;
     padding: 0 5px; }
 
-  /* line 134, ../sass/partials/layout.scss */
+  /* line 138, ../sass/partials/layout.scss */
   .separator {
     display: block; }
 
-  /* line 137, ../sass/partials/layout.scss */
+  /* line 141, ../sass/partials/layout.scss */
   .item {
     margin-right: 0; } }
-/* line 142, ../sass/partials/layout.scss */
+/* line 146, ../sass/partials/layout.scss */
 .separator:last-child {
   display: block; }
 
@@ -224,8 +228,8 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
 
 /* line 13, ../sass/partials/typography.scss */
 #home-title {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
   font-size: 18px;
   border-top: 1px dotted rgba(255, 255, 255, 0.2);
   border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
