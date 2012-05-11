@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php if(false){?>
 	<!--BEGIN #content -->
     <div id="content">
     	
@@ -89,5 +89,7 @@
 		</div>
 
 	</div><!-- #content -->
-
+<?php }else{ ?>
+<p class="techincal-dificulties">Techincal difficulties… please stand by!</p>
+<?php }?>
 <?php get_footer(); ?>

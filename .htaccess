@@ -32,6 +32,7 @@
     </IfModule>
 </FilesMatch>
 # END W3TC Browser Cache
+
 # BEGIN W3TC Minify cache
 <IfModule mod_mime.c>
     AddEncoding gzip .gzip
@@ -52,6 +53,7 @@
     Header set Vary "Accept-Encoding"
 </IfModule>
 # END W3TC Minify cache
+
 # BEGIN W3TC Minify core
 <IfModule mod_rewrite.c>
     RewriteEngine On
