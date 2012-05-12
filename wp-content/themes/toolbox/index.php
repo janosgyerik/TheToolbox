@@ -75,13 +75,6 @@
 				<hr class="separator"/>
 			<?php } ?>
 
-			<?php if($i==7){
-				$i++;
-				?>
-				<div class="item normal top-10">
-					<?php dynamic_sidebar( 'top-10' ); ?>
-				</div
-			<?php } ?>
 			<?php endwhile; endif; ?>
 			
 			<?php get_template_part('includes/index-loadmore'); ?>
