@@ -17,7 +17,7 @@
  *
  * @todo cache system does not have error logging yet.
  */
-$min_errorLogger = false;
+$min_errorLogger = true;
 
 
 /**

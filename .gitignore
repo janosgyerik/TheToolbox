@@ -23,3 +23,9 @@ wp-content/w3-total-cache-config.php
 wp-content/db.php
 
 wp-content/object-cache.php
+
+wp-content/cache/meta/wp-cache-31c1f771dec223c2ce47aa7b3d75410b.meta
+
+wp-content/cache/wp-cache-31c1f771dec223c2ce47aa7b3d75410b.html
+
+wp-content/cache/*
