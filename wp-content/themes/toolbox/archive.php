@@ -74,7 +74,7 @@
 						<?php dt_overlay_icon(); ?>
 						
 						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php echo $tool_url; ?>"><?php dt_image(300, 180); ?></a>
+							<a href="<?php echo $tool_url; ?>"><?php the_post_thumbnail( "full" ); ?></a>
 						<?php endif; ?>
 						
 					<!--END .featured-image -->

@@ -30,7 +30,7 @@
 
 						<?php dt_overlay_icon(); ?>
 						
-						<a href="<?php echo $tool_url; ?>" target="_blank"><?php dt_image(300, 180); ?></a>
+						<a href="<?php echo $tool_url; ?>" target="_blank"><?php the_post_thumbnail( "full" ); ?></a>
 						
 					<!--END .featured-image -->
 					</div>
