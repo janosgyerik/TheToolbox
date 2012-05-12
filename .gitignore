@@ -2,8 +2,3 @@
 *.scssc
 *.log
 w3-total-cache-config-preview.php
-wp-content/w3tc/*
-wp-content/plugins/wp-super-cache/*
-wp-content/cache/*
-wp-content/wp-cache-config.php
-wp-content/advanced-cache.php
