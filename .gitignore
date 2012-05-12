@@ -19,3 +19,7 @@ wp-content/w3-total-cache-config-preview.php
 wp-content/w3tc/min/.htaccess
 
 wp-content/w3-total-cache-config.php
+
+wp-content/db.php
+
+wp-content/object-cache.php

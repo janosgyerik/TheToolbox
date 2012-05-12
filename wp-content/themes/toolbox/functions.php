@@ -28,5 +28,16 @@ function remove_more_scripts(){
 }
 add_action('wp_print_scripts', 'remove_more_scripts', 100);
 
-
+function toolbox_sidebars(){
+	register_sidebar(array(
+		'name' => __( 'Top 10' ),
+		'id' => 'top-10',
+		'description' => __( 'Widget for the top 10 most used tools' ),
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>'
+	)); 
+}
+add_action( 'widgets_init', 'toolbox_sidebars' );
 ?>
