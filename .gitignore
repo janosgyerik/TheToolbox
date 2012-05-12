@@ -1,7 +1,7 @@
 .DS_Store
 *.scssc
 *.log
-w3-total-cache-config-preview.php
+
 wp-content/cache/supercache/toolbox/index.html
 
 wp-content/wp-cache-config.php
