@@ -11,3 +11,13 @@ wp-content/cache/2.html
 wp-content/cache/1.html
 
 wp-content/advanced-cache.php
+
+wp-content/w3tc/min/index.php
+
+.htaccess
+
+wp-content/w3-total-cache-config-preview.php
+
+wp-content/w3tc/min/.htaccess
+
+wp-content/w3-total-cache-config.php
