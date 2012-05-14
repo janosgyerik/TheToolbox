@@ -103,19 +103,23 @@ body{
 @media screen and (min-width: 1035px) {
 	.layout-centered #container{
 		width:940px;
+		#content{
+			width:980px;
+			overflow:hidden;
+		}
 	}
 	.home{
-		.item:nth-of-type(3n){
-			margin-right:0;
-		}
+		// .item:nth-of-type(3n){
+		// 	margin-right:0;
+		// }
 		.separator:nth-of-type(3n){
 			display:block;
 		}
 	}
 	.archive{
-		.item:nth-of-type(2n){
-			margin-right:0;
-		}
+		// .item:nth-of-type(2n){
+		// 	margin-right:0;
+		// }
 		.separator:nth-of-type(2n){
 			display:block;
 		}
@@ -148,9 +152,9 @@ body{
 	.separator:nth-of-type(even){
 		display:block;
 	}
-	.item:nth-of-type(2n){
-		margin-right:0;
-	}
+	// .item:nth-of-type(2n){
+	// 	margin-right:0;
+	// }
 }
 /* for 680px or less - Mobiles */
 @media screen and (max-width: 680px) {
@@ -172,9 +176,9 @@ body{
 	.separator{
 		display:block;
 	}
-	.item{
-		margin-right:0;
-	}
+	// .item{
+	// 	margin-right:0;
+	// }
 }
 //always show the last separator no matter what
 .separator:last-child{

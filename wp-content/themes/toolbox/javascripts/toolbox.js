@@ -50,6 +50,10 @@ jQuery(document).ready(function() {
 				animationEngine: 'none',
 	  	    	itemSelector : '.item',
 	  	    	layoutMode: 'fitRows',
+	  	    	containerStyleObject: {
+	  	    		position: 'static', 
+	  	    		overflow: 'hidden' 
+	  	    	},
 	  			getSortData: {
 	
 					// order: function($elem) {
