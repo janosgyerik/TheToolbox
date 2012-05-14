@@ -4,27 +4,26 @@ $total = $wp_query->post_count;
 ?>
 
 <div class="filters">
-<ul id="filter-by" class="filter">
-	<li class="label">Show: </li>		
-	<li class="active"><a href="/" data-filter="*"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
-	<?php 
-	wp_list_categories( array(
-			'hide_empty' => 1,
-			'title_li' => '',
-			'depth' => 1,
-			'walker' => new Site_Walker(),
-			'show_count' => 1
-		) 
-	); 
-	?> 			
-</ul>
-
-<ul id="sort-by" class="filter">
-	<li class="label">Sort by:</li>
-	<li class="active"><a href="#order">Date Added</a></li>
-	<li><a href="#name">Name</a></li>
-	<li><a href="#votes">Most Used</a></li>
-</ul>
+	<ul id="sort-by" class="filter">
+		<li class="label">Sort by:</li>
+		<li class="active"><a href="#order">Date Added</a></li>
+		<li><a href="#name">Name</a></li>
+		<li><a href="#votes">Most Used</a></li>
+	</ul>
+	<ul id="filter-by" class="filter">
+		<li class="label">Show: </li>		
+		<li class="active"><a href="/" data-filter="*"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
+		<?php 
+		wp_list_categories( array(
+				'hide_empty' => 1,
+				'title_li' => '',
+				'depth' => 1,
+				'walker' => new Site_Walker(),
+				'show_count' => 1
+			) 
+		); 
+		?> 			
+	</ul>
 </div>
 
 <!--BEGIN #content -->
