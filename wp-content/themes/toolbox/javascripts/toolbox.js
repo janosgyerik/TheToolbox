@@ -47,6 +47,7 @@ jQuery(document).ready(function() {
 		$container.imagesLoaded( function() {
 			
 			$container.isotope({
+				animationEngine: 'none',
 	  	    	itemSelector : '.item',
 	  	    	layoutMode: 'fitRows',
 	  			getSortData: {
