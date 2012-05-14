@@ -548,7 +548,10 @@ body, #home-title, .item .meta-category, .item .post-title a, .item .post-title,
   /* line 206, ../sass/partials/modules.scss */
   .item .rated ul, .item .rated ul:hover, .item .loading ul {
     background-position: center bottom; }
+  /* line 209, ../sass/partials/modules.scss */
+  .item.hidden {
+    display: none; }
 
-/* line 210, ../sass/partials/modules.scss */
+/* line 213, ../sass/partials/modules.scss */
 .techincal-dificulties {
   color: white; }

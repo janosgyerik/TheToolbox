@@ -206,6 +206,9 @@
 	.rated ul, .rated ul:hover, .loading ul{
 		background-position:center bottom;
 	}
+	&.hidden{
+		display:none;
+	}
 }
 .techincal-dificulties{
 	color:white;

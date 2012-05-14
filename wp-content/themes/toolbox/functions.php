@@ -48,7 +48,7 @@ class Site_Walker extends Walker_Category {
       extract($args);
       $cat_name = esc_attr( $category->name);
       $cat_name = apply_filters( 'list_cats', $cat_name, $category );
-	  $link = '<a href="/category/'.$category->category_nicename.'" data-filter=".category-'.$category->category_nicename.'" ';
+	  $link = '<a href="/category/'.$category->category_nicename.'" data-filter="category-'.$category->category_nicename.'" ';
 	  $link .= 'title="' . sprintf(__( 'View all items filed under %s', 'engine' ), $cat_name) . '"';
       $link .= '>';
       // $link .= $cat_name . '</a>';

@@ -21,7 +21,7 @@ $total = $wp_query->post_count;
 
 <ul id="sort-by" class="filter">
 	<li class="label">Sort by:</li>
-	<li class="active"><a href="#original-order">Date Added</a></li>
+	<li class="active"><a href="#order">Date Added</a></li>
 	<li><a href="#name">Name</a></li>
 	<li><a href="#votes">Most Used</a></li>
 </ul>
@@ -47,7 +47,7 @@ $total = $wp_query->post_count;
 		$tool_url = get_post_meta(get_the_ID(), 'dt_video', true);
 		?>
 		<!--BEGIN .item -->	
-		<div <?php post_class("item"); ?> id="post-<?php the_ID(); ?>" data-order='1' >
+		<div <?php post_class("item"); ?> id="post-<?php the_ID(); ?>" data-order='<?php echo $i; ?>' >
 		
 			<!--BEGIN .hentry -->
 
