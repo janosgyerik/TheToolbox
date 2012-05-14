@@ -36,6 +36,72 @@ jQuery(document).ready(function() {
 	});
 
 /*-----------------------------------------------------------------------------------*/
+/*	Portfolio Filtering
+/*-----------------------------------------------------------------------------------*/
+	
+			
+	if(jQuery().isotope) {
+		
+		$container = jQuery('#masonry');
+		
+		$container.imagesLoaded( function() {
+			
+			$container.isotope({
+	  	    	itemSelector : '.item',
+	  	    	layoutMode: 'fitRows',
+	  			getSortData: {
+	
+					// order: function($elem) {
+					// 	return parseInt($elem.attr('data-order'));
+					// }, 
+		  			name: function($elem) {
+		  				return $elem.find(".post-title a").text();
+		  			}, 
+		  			votes: function($elem) {
+		  				return parseInt($elem.find(".votes").text());
+		  			}
+	
+	  			},
+	  			sortBy: 'order'
+	  	    }, function() {
+		    	dt_getposts();
+		   	});
+
+
+		});
+
+
+  	    // filter items when filter link is clicked
+		jQuery('#filter-by li').click(function(){
+
+			jQuery('#filter-by li').removeClass('active');
+			jQuery(this).addClass('active');
+
+			var selector = jQuery(this).find('a').attr('data-filter');
+
+			$container.isotope({ filter: selector });
+
+	        return false;
+
+		});
+
+		$('#sort-by li').click(function(){
+			jQuery('#sort-by li').removeClass('active');
+			jQuery(this).addClass('active');
+			// get href attribute, minus the '#'
+			var sortName = $(this).find("a").attr('href').slice(1);
+			var sortOrder=true;
+			if(sortName=="votes"){
+				var sortOrder=false;
+			}
+			$container.isotope({ sortBy : sortName, sortAscending : sortOrder });
+
+			return false;
+		});
+  	}
+
+
+/*-----------------------------------------------------------------------------------*/
 /*	Extras
 /*-----------------------------------------------------------------------------------*/
 
@@ -148,54 +214,6 @@ jQuery(document).ready(function() {
 	});
 
 
-/*-----------------------------------------------------------------------------------*/
-/*	Portfolio Filtering
-/*-----------------------------------------------------------------------------------*/
-	
-			
-	if(jQuery().isotope) {
-		
-		$container = jQuery('#masonry');
-		
-		$container.imagesLoaded( function() {
-			
-			$container.isotope({
-	  	    	itemSelector : '.item',
-	  	    	masonry: {
-	  			    columnWidth: 320
-	  			},
-	  			getSortData: {
-	
-		  			order: function($elem) {
-		  				return parseInt($elem.attr('data-order'));
-		  			}
-	
-	  			},
-	  			sortBy: 'order'
-	  	    }, function() {
-		    	dt_getposts();
-		   	});
-
-
-		});
-
-
-  	    // filter items when filter link is clicked
-		jQuery('#filter li').click(function(){
-
-			jQuery('#filter li').removeClass('active');
-			jQuery(this).addClass('active');
-
-			var selector = jQuery(this).find('a').attr('data-filter');
-
-			$container.isotope({ filter: selector });
-
-	        return false;
-
-		});
-
-
-  	}
 
 
 /*-----------------------------------------------------------------------------------*/
