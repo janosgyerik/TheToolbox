@@ -40,22 +40,6 @@
 #home-title{
 	text-align:center;
 }
-.item{
-	@include border-radius(5px);
-	@include box-shadow(0 1px 4px black(0.45));
-	@include border-radius(5px);
-	background:#f8f8f8;
-	.inner{
-		padding:20px;
-	}
-	.featured-image{
-		border-bottom:3px solid #444;
-		margin:0;
-	}
-	&.last{
-		// margin-right:0px;
-	}
-}
 .hentry{
 	padding:0;
 }
@@ -171,6 +155,20 @@
 	}
 }
 .item{
+	@include border-radius(5px);
+	@include box-shadow(0 1px 4px black(0.45));
+	@include border-radius(5px);
+	background:#f8f8f8;
+	.inner{
+		padding:20px;
+	}
+	.featured-image{
+		border-bottom:3px solid #444;
+		margin:0;
+	}
+	&.last{
+		// margin-right:0px;
+	}
 	.post-content{
 		height:70px;
 	}
