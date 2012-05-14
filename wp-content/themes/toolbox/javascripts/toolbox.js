@@ -86,14 +86,18 @@ jQuery(document).ready(function() {
 			var selector = jQuery(this).find('a').attr('data-filter');
 
 			// $container.isotope({ filter: selector });
-			jQuery("#masonry .item").each(function(){
-				var item=jQuery(this);
-				item.removeClass("hidden");
-				if(!item.hasClass(selector)){
-					item.addClass("hidden");
-				}
-			});
-
+			var items=jQuery("#masonry .item");
+			if(selector=="all"){
+				items.removeClass("hidden");
+			}else{
+				items.each(function(){
+					var item=jQuery(this);
+					item.removeClass("hidden");
+					if(!item.hasClass(selector)){
+						item.addClass("hidden");
+					}
+				});
+			}
 	        return false;
 
 		});

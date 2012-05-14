@@ -12,7 +12,7 @@ $total = $wp_query->post_count;
 	</ul>
 	<ul id="filter-by" class="filter">
 		<li class="label">Show: </li>		
-		<li class="active"><a href="/" data-filter="*"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
+		<li class="active"><a href="/" data-filter="all"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
 		<?php 
 		wp_list_categories( array(
 				'hide_empty' => 1,
