@@ -42,19 +42,23 @@
 
 <body <?php body_class(); ?>>
 
+<!-- Yoggrt Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End Yoggrt Ad Code -->
+
 <!-- BEGIN #wrapper-->
 <div id="wrapper">
 
 	<!-- BEGIN #page-->
     <div id="page">
-
-
-		<!-- BEGIN #top-bar-->
-		<div id="top-bar">
-
-		<!-- END #top-bar-->
-		</div>
-
 		<!-- BEGIN #header-->
 		<div id="header">
 			

@@ -1,5 +1,64 @@
+.top{
+	border-bottom: 1px dotted white(0.2);
+	margin-bottom:20px;
+}
 .filters{
-
+	float:left;
+	width:760px;
+	margin-right:20px;
+}
+.ad{
+	float:left;
+	width:160px;
+	color:white(0.8);
+	text-shadow:0 1px 2px black(0.55);
+	margin-bottom:10px;
+	.yoggrt {
+		background: none;
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
+	.one {
+		.bsa_it_ad {
+			background: transparent;
+			border: none;
+			font-family: inherit;
+			padding:0px;
+			margin: 0;
+			&:hover img {
+				-moz-box-shadow: 0 0 3px #000;
+				-webkit-box-shadow: 0 0 3px #000;
+				box-shadow: 0 0 3px #000;
+			}
+			.bsa_it_i {
+				display: block;
+				padding: 0;
+				float: none;
+				margin: 0 0 5px;
+				img {
+					padding: 0;
+					border: none;
+				}
+			}
+			.bsa_it_t {
+				color:white;
+				font-weight:bold;
+			}
+			.bsa_it_d {
+				font-size: 12px;
+				color: white(0.6); 
+			}
+		}
+		.bsa_it_p {
+			display: none;
+		}
+	}
+	a#bsap_aplink, a#bsap_aplink:hover {
+		display: block;
+		line-height:24px;
+		font-size: 10px;
+	}
 }
 .filter{
 	padding-bottom:10px;
@@ -36,6 +95,10 @@
 				}
 			}
 		}
+	}
+	&:last-child{
+		border:none;
+		margin:0;
 	}
 }
 #home-title{

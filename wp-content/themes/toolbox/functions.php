@@ -20,11 +20,11 @@ add_action('init','remove_scripts', 100);
 
 function remove_more_scripts(){
 	wp_dequeue_script('easing');
-	// wp_dequeue_script('isotope');
+	wp_dequeue_script('isotope');
 	wp_dequeue_script('slidesjs');
 	wp_dequeue_script('colorbox');
 	wp_dequeue_script('fitvids');
-	// wp_dequeue_script('imagesLoaded');
+	wp_dequeue_script('imagesLoaded');
 }
 add_action('wp_print_scripts', 'remove_more_scripts', 100);
 

@@ -1,6 +1,18 @@
 body, #home-title, .item .meta-category, .item .post-title a, .item .post-title, .single .post-title, .page .page-title{
 	font-family:kulturista-web, serif;
 }
+a{
+	color:$linkColor;
+	&:hover{
+		color:white;
+	}
+}
+#content a{
+	color:#333;
+	&:hover{
+		color:$linkColor;
+	}
+}
 .item .post-title a, .item .post-title{
 	font-size:24px;
 	line-height:1.3;
