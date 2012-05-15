@@ -39,47 +39,9 @@ jQuery(document).ready(function() {
 /*-----------------------------------------------------------------------------------*/
 /*	Portfolio Filtering
 /*-----------------------------------------------------------------------------------*/
-	
-			
-	if(jQuery().isotope) {
-		
-		$container = jQuery('#masonryXXX');
-		
-		$container.imagesLoaded( function() {
-			
-			$container.isotope({
-				animationEngine: 'none',
-	  	    	itemSelector : '.item',
-	  	    	layoutMode: 'fitRows',
-	  	    	containerStyleObject: {
-	  	    		position: 'static', 
-	  	    		overflow: 'hidden' 
-	  	    	},
-	  			getSortData: {
-	
-					// order: function($elem) {
-					// 	return parseInt($elem.attr('data-order'));
-					// }, 
-		  			name: function($elem) {
-		  				return $elem.find(".post-title a").text();
-		  			}, 
-		  			votes: function($elem) {
-		  				return parseInt($elem.find(".votes").text());
-		  			}
-	
-	  			},
-	  			sortBy: 'order'
-	  	    }, function() {
-		    	dt_getposts();
-		   	});
-
-
-		});
-
 
   	    // filter items when filter link is clicked
 		jQuery('#filter-by li').click(function(){
-
 			jQuery('#filter-by li').removeClass('active');
 			jQuery(this).addClass('active');
 
@@ -127,7 +89,6 @@ jQuery(document).ready(function() {
 
 			return false;
 		});
-  	}
 
 
 /*-----------------------------------------------------------------------------------*/

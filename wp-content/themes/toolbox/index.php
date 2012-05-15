@@ -4,35 +4,35 @@ $total = $wp_query->post_count;
 ?>
 
 <div class="top clearfix">
-<div class="filters">
-	<ul id="sort-by" class="filter">
-		<li class="label">Sort by:</li>
-		<li class="active"><a href="#order">Date Added</a></li>
-		<li><a href="#name">Name</a></li>
-		<li><a href="#votes">Most Used</a></li>
-	</ul>
-	<ul id="filter-by" class="filter">
-		<li class="label">Show: </li>		
-		<li class="active"><a href="/" data-filter="all"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
-		<?php 
-		wp_list_categories( array(
-				'hide_empty' => 1,
-				'title_li' => '',
-				'depth' => 1,
-				'walker' => new Site_Walker(),
-				'show_count' => 1
-			) 
-		); 
-		?> 			
-	</ul>
-</div>
+	<div class="filters">
+		<ul id="sort-by" class="filter">
+			<li class="label">Sort by:</li>
+			<li class="active"><a href="#order">Date Added</a></li>
+			<li><a href="#name">Name</a></li>
+			<li><a href="#votes">Most Used</a></li>
+		</ul>
+		<ul id="filter-by" class="filter">
+			<li class="label">Show: </li>		
+			<li class="active"><a href="/" data-filter="all"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
+			<?php 
+			wp_list_categories( array(
+					'hide_empty' => 1,
+					'title_li' => '',
+					'depth' => 1,
+					'walker' => new Site_Walker(),
+					'show_count' => 1
+				) 
+			); 
+			?> 			
+		</ul>
+	</div>
 
-<div class="ad">
-<!-- Yoggrt Zone Code -->
-<div id="bsap_1275456" class="bsarocks bsap_ab4a3f708e0d8c0162387aae5506bc7c"></div>
-<a href="http://yoggrt.com" id="bsap_aplink">ads by Yoggrt</a>
-<!-- End Yoggrt Zone Code -->
-</div>
+	<div class="ad">
+		<!-- Yoggrt Zone Code -->
+		<div id="bsap_1275456" class="bsarocks bsap_ab4a3f708e0d8c0162387aae5506bc7c"></div>
+		<a href="http://yoggrt.com" id="bsap_aplink">ads by Yoggrt</a>
+		<!-- End Yoggrt Zone Code -->
+	</div>
 </div>
 <!--BEGIN #content -->
 <div id="content">
