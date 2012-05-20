@@ -70,8 +70,17 @@ $total = $wp_query->post_count;
 
 					<?php dt_overlay_icon(); ?>
 					
-					<a href="<?php echo $tool_url; ?>" target="_blank"><?php the_post_thumbnail( "full" ); ?></a>
+					<!-- <a href="<?php echo $tool_url; ?>" target="_blank"><?php the_post_thumbnail( "full" ); ?></a> -->
 					
+					<a href="<?php echo $tool_url; ?>" target="_blank">
+						<img src="<?php echo get_stylesheet_directory_uri();?>/images/loading.png" data-href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" alt="<?php the_title(); ?>"/>
+
+						<noscript>
+							<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" alt="<?php the_title(); ?>"/>
+						</noscript>
+					</a>
+
+
 				<!--END .featured-image -->
 				</div>
 				
