@@ -6,6 +6,13 @@
 	float:left;
 	width:760px;
 	margin-right:20px;
+	color:white(0.8);
+	font-size:14px;
+	.row{
+		padding-bottom:10px;
+		margin-bottom:20px;
+		border-bottom: 1px dotted white(0.2);	
+	}
 }
 .ad{
 	float:left;
@@ -61,11 +68,6 @@
 	}
 }
 .filter{
-	padding-bottom:10px;
-	margin-bottom:20px;
-	border-bottom: 1px dotted white(0.2);
-	color:white(0.8);
-	font-size:14px;
 	li{
 		display:inline-block;
 		margin:0 5px 10px 0;
@@ -99,6 +101,35 @@
 	&:last-child{
 		border:none;
 		margin:0;
+	}
+}
+#sort-by{
+	float:left;
+}
+#live-search{
+	float:right;
+	margin-top:-3px;
+	label{
+		display:inline-block;
+		margin-right:5px;
+	}
+	input{
+		font-family:inherit;
+		display:inline-block;
+		@include border-radius(30px);
+		height:20px;
+		padding:5px 12px;
+		line-height:20px;
+		background:transparent;
+		@include gradient(black(0.2), black(0.1));
+		@include box-emboss(0.15,0.7);
+		border:none;
+		color:white(0.8);
+		&:focus{
+			outline:none;
+			background:white(0.8);
+			color:#333;
+		}
 	}
 }
 #home-title{

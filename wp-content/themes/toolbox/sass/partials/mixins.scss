@@ -34,3 +34,6 @@
 	border:1px solid black(0.6);
 	@include border-radius(3px);
 }
+@mixin gradient($a,$b){
+	@include background-image(linear-gradient(top, $a 0%, $b 100%));
+}

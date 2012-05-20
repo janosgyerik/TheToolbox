@@ -5,12 +5,18 @@ $total = $wp_query->post_count;
 
 <div class="top clearfix">
 	<div class="filters">
-		<ul id="sort-by" class="filter">
-			<li class="label">Sort by:</li>
-			<li class="active"><a href="#order">Date Added</a></li>
-			<li><a href="#name">Name</a></li>
-			<li><a href="#votes">Most Used</a></li>
-		</ul>
+		<div class="clearfix row">
+			<ul id="sort-by" class="filter">
+				<li class="label">Sort by:</li>
+				<li class="active"><a href="#order">Date Added</a></li>
+				<li><a href="#name">Name</a></li>
+				<li><a href="#votes">Most Used</a></li>
+			</ul>
+			<div id="live-search">
+				<label for="search-field">Search:</label>
+				<input id="search-field" name="search-field" class="text" type="text"/>
+			</div>
+		</div>
 		<ul id="filter-by" class="filter">
 			<li class="label">Show: </li>		
 			<li class="active"><a href="/" data-filter="all"><?php _e('All', 'engine'); ?> <span class="count">(<?php echo $total; ?>)</span></a></li>
@@ -39,7 +45,7 @@ $total = $wp_query->post_count;
 	
 	<!--BEGIN #masonry -->	
 	<div id="masonry">
-
+		<p class="no-results hidden">Sorry, no results matched your search.</p>
 		<?php 
 		$i=0;
 		$slider = get_option('dt_slider'); 
