@@ -15,6 +15,7 @@ $total = $wp_query->post_count;
 			<div id="live-search">
 				<label for="search-field">Search:</label>
 				<input id="search-field" name="search-field" class="text" type="text"/>
+				<a href="#" class="clear-link">Clear</a>
 			</div>
 		</div>
 		<ul id="filter-by" class="filter">

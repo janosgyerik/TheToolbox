@@ -109,6 +109,7 @@
 #live-search{
 	float:right;
 	margin-top:-3px;
+	position:relative;
 	label{
 		display:inline-block;
 		margin-right:5px;
@@ -125,11 +126,25 @@
 		@include box-emboss(0.15,0.7);
 		border:none;
 		color:white(0.8);
-		&:focus{
+	}
+	&.active input, input:focus{
 			outline:none;
 			background:white(0.8);
-			color:#333;
-		}
+			color:#333;	
+	}
+	.clear-link{
+		position:absolute;
+		@include hide-text;
+		background:url("../images/cancel.png");
+		height:20px;
+		width:20px;
+		right:5px;
+		top:5px;
+		z-index:10;
+		display:none;
+	}
+	&.active .clear-link{
+		display:block;
 	}
 }
 #home-title{
@@ -307,4 +322,7 @@
 }
 .techincal-dificulties{
 	color:white;
+}
+.hidden{
+	display:none !important;
 }

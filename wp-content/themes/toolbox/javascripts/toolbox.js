@@ -90,8 +90,22 @@ jQuery(document).ready(function() {
 /*	Live Search
 /*-----------------------------------------------------------------------------------*/
 
+$('#search-field').keyup(function(){
+	var search=$("#live-search");
+	if($(this).val()){
+		search.addClass("active");
+	}else{
+		search.removeClass("active");
+	}
+});
 
-$('input[name="search-field"]').search('#masonry .item', function(on) {
+$('.clear-link').click(function(){
+	$('#search-field').val("");
+	$('#search-field').keyup();
+	$('#live-search').removeClass("active");
+});
+
+$('#search-field').search('#masonry .item', function(on) {
 	var noResults=$('.no-results');
   on.reset(function() {
 	$('#masonry .item').show();
