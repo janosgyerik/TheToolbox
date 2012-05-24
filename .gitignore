@@ -1,31 +1,57 @@
+wp-content.zip
+dumps/
+
+staging_nrfight_tv.csr
+staging_nrfight_tv.key
+
+*.scssc
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+#*.log
+
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
 .DS_Store
 *.scssc
-*.log
 
-wp-content/cache/supercache/toolbox/index.html
 
-wp-content/wp-cache-config.php
-
-wp-content/cache/2.html
-
-wp-content/cache/1.html
+# Cache #
+#########
 
 wp-content/advanced-cache.php
-
-wp-content/w3tc/min/index.php
-
-wp-content/w3-total-cache-config-preview.php
-
-wp-content/w3tc/min/.htaccess
-
-wp-content/w3-total-cache-config.php
-
 wp-content/db.php
-
 wp-content/object-cache.php
-
-wp-content/cache/meta/wp-cache-31c1f771dec223c2ce47aa7b3d75410b.meta
-
-wp-content/cache/wp-cache-31c1f771dec223c2ce47aa7b3d75410b.html
-
-wp-content/cache/*
+wp-content/w3-total-cache-config.php
+wp-content/w3-total-cache-config-preview.php
+wp-content/w3tc/objectcache/*
+wp-content/w3tc/min/*
+!wp-content/w3tc/min/.htaccess
+!wp-content/w3tc/min/index.php
