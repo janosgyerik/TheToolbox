@@ -41,6 +41,19 @@ function toolbox_sidebars(){
 }
 add_action( 'widgets_init', 'toolbox_sidebars' );
 
+/*-----------------------------------------------------------------------------------*/
+/*                                           PHPINFO                                 */
+/*-----------------------------------------------------------------------------------*/
+add_action('admin_menu', 'phpinfo_menu');
+
+function phpinfo_menu() {
+  add_options_page('PHP Info', 'PHP Info', 'manage_options', 'php_info', 'php_info');
+}
+
+function php_info(){
+  phpinfo();
+}
+
 /* ==  List categories for the groups  ==============================*/
 
 class Site_Walker extends Walker_Category {
