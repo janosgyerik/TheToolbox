@@ -1,0 +1,315 @@
+/* @override 
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1325446193706
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328362003072
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328362689420
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328363570532
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328363779849
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328364360214
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328385345613
+	http://localhost:8888/mollify/test/dev/backend/plugin/Share/client/style.css?_=1328385734242
+*/
+
+#share-dialog-content.loading {
+	width: 400px;
+	height: 350px;
+	background: url(wait.gif) no-repeat 50% 50%;
+}
+
+#details-share {
+	float: right;
+	color: #6488cd;
+	cursor: pointer;
+	margin-top: 4px;
+}
+
+#share-header {
+	padding-left: 8px;
+	padding-top: 4px;
+}
+
+#share-item-title {
+	font-weight: bold;
+	font-size: 13px;
+	margin-bottom: 4px;
+	width: 400px;
+}
+
+#share-list {
+	position: relative;
+	height: 250px;
+	width: 400px;
+	margin: 8px;
+	border: 3px solid #b1b1b1;
+	padding: 2px;
+	overflow: hidden;
+}
+
+.item-share {
+	width: 100%;
+	border-bottom: 1px dotted #adadad;
+	float: left;
+}
+
+.item-share-unnamed .share-name {
+	font-style: italic;
+	color: #636363;
+}
+
+.item-share-hover {
+	background-color: #f5f5f5;
+}
+
+.share-info {
+	padding-top: 8px;
+	padding-left: 11px;
+	float: left;
+}
+
+.share-name {
+	padding-top: 0px;
+	font-size: 16px;	
+}
+
+.share-link-copy-container {
+	float: left;
+	clear: left;
+	margin-left: 12px;
+	height: 20px;
+	margin-top: 5px;
+	color: #6776ae;
+}
+
+.share-link-copy.hover, .share-link-toggle-title.hover {
+	text-decoration: underline;
+}
+
+.share-link-copy.click {
+	background-color: #e7e7e7;
+}
+
+.share-link-toggle-title {
+	float: left;
+	margin-top: 5px;
+	margin-left: 8px;
+	color: #6776ae;
+}
+
+.share-inactive-title {
+	float: left;
+	font-style: italic;
+	margin-top: 5px;
+	margin-left: 8px;
+}
+
+.share-link-toggle-title, .share-link-copy-container {
+	visibility: hidden;
+	cursor: pointer;
+}
+
+.share-link-content {
+	float: left;
+	display: none;
+	width: 100%;
+	clear: both;
+}
+
+.share-link-container {
+	padding-left: 8px;
+	padding-right: 12px;
+	padding-bottom: 8px;
+}
+
+.share-link-instructions {
+	color: #4e4e4e;
+	font-weight: bold;
+	display: none;
+}
+
+.share-link {
+	margin-top: 0px;
+}
+
+.share-link input {
+	width: 100%;
+	cursor: text;
+}
+
+.share-link-copy-container {
+	display: block;
+	width: auto;
+}
+
+.item-share-hover .share-link-toggle-title, .item-share-hover .share-link-copy-container {
+	visibility: visible;
+}
+
+.share-link-content.open {
+	display: block;
+}
+
+.share-link-copy-container.hidden, .item-share-inactive .share-link-copy-container {
+	visibility: hidden;
+	width: 0px;
+	margin-left: 4px;
+}
+
+.share-link-content.open {
+	display: block;
+}
+
+.share-link-content.open {
+	height: auto;
+}
+
+.item-share-inactive .share-link-toggle {
+	color: #9e9e9e;
+}
+
+.share-actions {
+	float: right;
+	padding-right: 8px;
+	padding-top: 14px;
+}
+
+.context-group {
+	width: 100%;
+	font-weight: bold;
+	font-size: 11px;
+	clear: both;
+	margin-top: 10px;
+	margin-bottom: 7px;
+	border-bottom: 1px dotted #b4b4b4;
+	padding-bottom: 6px;
+	float: left;
+}
+
+.option-title {
+	margin-left: 10px;
+	float: left;
+	height: 16px;
+	margin-top: 3px;
+	width: 100px;
+	clear: both;
+}
+
+.option-value {
+	float: left;
+}
+
+.share-protection-option {
+	clear: both;
+	float: left;
+}
+
+#context-buttons {
+	clear: both;
+	padding-top: 30px;
+}
+
+#share-items {
+	position: relative;
+	height: 100%;
+	overflow: auto;
+	width: 100%;
+}
+
+#share-items.minimized {
+	position: relative;
+	height: 0px;
+}
+
+#share-items .loading {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.06) url(wait.gif) no-repeat 50% 50%;
+}
+
+.item-share .share-edit {
+	width: 16px;
+	height: 16px;
+	float: left;	
+}
+
+.item-share .share-remove {
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-left: 8px;
+}
+
+.item-share-hover .share-edit {
+	cursor: pointer;
+	background-image: url(edit.png);
+}
+
+.item-share-hover .share-remove {
+	margin-left: 8px;
+	cursor: pointer;
+	background-image: url(remove.png);
+}
+
+.item-share-inactive {
+	color: #aeaeae;
+	background-color: #ececec;
+	cursor: default;
+}
+
+.item-share-hover.item-share-inactive {
+	background-color: #dfe1e1;
+}
+
+#share-context {
+	position: relative;
+	width: 100%;
+	margin-top: 0px;
+	overflow: hidden;
+}
+
+#share-context.minimized {
+	margin-top: -30px;
+}
+
+#share-context-toolbar {
+	background-color: #c9cfde;
+	width: 100%;
+	height: 30px;
+}
+
+.share-dialog-buttons {
+	margin-right: 13px;
+}
+
+#add-share-btn {
+	font-weight: bold;
+	font-size: 12px;
+	padding-top: 9px;
+	padding-left: 35px;
+	color: #515151;
+	cursor: pointer;
+	background: url(plus.png) no-repeat 6px 6px;
+	height: 18px;
+}
+
+#add-share-title, #edit-share-title {
+	font-weight: bold;
+	font-size: 12px;
+	padding-top: 7px;
+	padding-left: 4px;
+	color: #515151;
+}
+
+.no-share-items {
+	font-size: 23px;
+	color: #c6c6c6;
+	text-align: center;
+	margin-top: 73px;
+}
+
+#details-share:hover {
+	text-decoration: underline;
+}
+
+#share-item {
+	font-weight: bold;
+	margin: 8px;
+}

@@ -1,0 +1,7 @@
+How to customize Mollify registration
+=====================================
+
+1. Rename file "Example_CustomRegistrationFields.php" into "CustomRegistrationFields.php"
+2. Rename file "Example_CustomRegistrationHandler.php" into "CustomRegistrationHandler.php"
+3. Modify "CustomRegistrationFields.php" to contain your fields in the registration form, as well as client side code to validate and provide for the backend.
+4. Modify "CustomRegistrationHandler.php" to contain your backend code to handle registration and registration confirmation.

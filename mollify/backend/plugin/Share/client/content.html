@@ -1,0 +1,88 @@
+<table cellspacing=0 cellpadding=0 style="width:100%; height:100%">
+	<tr height="1%">
+		<td>
+			<div id="share-header">
+				<div id="share-item-title"></div>
+				<div id="share-item-path"></div>
+				<div id="share-item-name"></div>
+			</div>
+		</td>
+	</tr>
+	
+	<tr height="97%">
+		<td align='left' style='vertical-align: top'>
+			<div id="share-list">
+				<div id="share-items"><div class="loading"></div></div>
+				<div id="share-context" class="minimized">
+					<div id="share-context-toolbar">
+						<div id="add-share-btn" class="share-context-toolbar-option localized" text-key="shareDialogShareAddButton"></div>
+						<div id="add-share-title" class="share-context-toolbar-option localized" text-key="shareDialogShareAddTitle" style="display:none"></div>
+						<div id="edit-share-title" class="share-context-toolbar-option localized" text-key="shareDialogShareEditTitle" style="display:none"></div>
+						<div id="share-link-title" class="share-context-toolbar-option localized" text-key="shareDialogShareLinkTitle" style="display:none"></div>
+					</div>
+					<div id="share-context-content"></div>
+				</div>
+			</div>
+		</td>
+	</tr>
+
+	<tr height="1%">
+		<td>
+			<div id="share-detail"></div>
+		</td>
+	</tr>
+	
+	<tr height="1%">
+		<td align="right">
+			<div class="share-dialog-buttons">
+				<button id="share-dialog-close" class="gwt-Button share-dialog-button localized" type="button" text-key="dialogCloseButton"></button>
+			</div>
+		</td>
+	</tr>
+</table>
+<div id="clip-test" style="visibility: hidden; width=0px; height=0px;"></div>
+
+<script id="share-template" type="text/x-jquery-tmpl">
+	<div id="share-${id}" class="${$item.itemClass()}">
+		<div class="share-info">
+			<div class="share-name">{{html $item.name()}}</div>
+		</div>
+		<div class="share-actions">
+			<div class="share-edit localized" title-key="shareDialogShareEditTitle"></div>
+			<div class="share-remove localized" title-key="shareDialogShareRemoveTitle"></div>
+		</div>
+		<div class="share-link-copy-container hidden" style="position:relative">
+			<div id="share-copy-${id}" class="share-link-copy localized" text-key="shareDialogShareLinkCopyToClipboard"></div>
+		</div>
+		{{if active}}
+		<div class="share-link-toggle-title localized" text-key="shareDialogItemLinkTitle"></div>
+		<div class="share-link-content">
+			<div class="share-link-container">
+				<div class="share-link-instructions localized" text-key="shareDialogShareLinkInstructions"></div>
+				<div class="share-link"><input type="text" readonly="yes" value="${$item.link()}"></input></div>
+			</div>
+		</div>
+		{{else}}
+		<div class="share-inactive-title localized" text-key="shareDialogItemInactiveLinkTitle"></div>
+		{{/if}}
+	</div>
+</script>
+
+<script id="share-context-addedit-template" type="text/x-jquery-tmpl">
+	<div id="title-general" class="context-group localized" text-key="shareDialogShareGeneralTitle"></div>
+	<div id="title-name" class="option-title localized" text-key="shareDialogShareNameTitle"></div><input id="share-general-name" type="text" class="option-value"></input>
+	<div id="title-active" class="option-title localized" text-key="shareDialogShareActiveTitle"></div><input id="share-general-active" type="checkbox" class="option-value"></input>
+	
+	<!--div id="title-protection" class="context-group"><text key="shareDialogShareProtectionTitle" /></div>
+	<input id="share-protection-none" type="radio" class="share-protection-option" value="none"><text key="shareDialogShareNoProtectionTitle" /></input>
+	<input id="share-protection-pw" type="radio" class="share-protection-option" value="pw" title="pw"><text key="shareDialogSharePwProtectionTitle" /></input>
+	<input id="share-protection-pw-value" type="text" class="option-value"></input-->
+	
+	<!--div id="title-validity" class="context-group localized" text-key="shareDialogShareValidityTitle"></div>
+	<div id="title-expiration" class="option-title localized" text-key="shareDialogShareExpirationTitle"></div><input id="share-validity-expirationdate-value" class="option-value" type="text"></input><input id="share-validity-expirationtime-value" class="option-value" type="text"></input-->
+	
+	<div id="context-buttons">
+		<button id="share-addedit-btn-ok" class="localized" text-key="shareDialogSave"></button>
+		<button id="share-addedit-btn-cancel" class="localized" text-key="shareDialogCancel"></button>
+	</div>
+</script>

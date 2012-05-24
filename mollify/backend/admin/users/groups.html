@@ -1,0 +1,96 @@
+<!--
+	Copyright (c) 2008- Samuli Järvelä
+
+	All rights reserved. This program and the accompanying materials
+	are made available under the terms of the Eclipse Public License v1.0
+	which accompanies this distribution, and is available at
+	http://www.eclipse.org/legal/epl-v10.html. If redistributing this code,
+	this entire header must remain intact.
+-->
+
+<div id="configuration-user-groups">
+	<div class="toolbar">
+		<button id="button-add-group" class="ui-state-default ui-corner-all">Add Group</button>
+		<button id="button-edit-group" class="ui-state-default ui-state-disabled ui-corner-all">Edit Group</button>
+		<button id="button-remove-group" class="ui-state-default ui-state-disabled ui-corner-all">Remove Group</button>
+		<button id="button-refresh-groups" class="ui-state-default ui-corner-all">Refresh</button>
+	</div>
+	<table id="groups-list">
+	</table>
+	<div id="group-details" class="configuration-details">
+		<div id="group-details-info" class="details-info"></div>
+		<div id="group-details-data" class="details-data" style="display:none">
+			<div id="group-users-section" class="details-data-section left">
+				<div class="toolbar">
+					<h1>Users</h1>
+					<button id="button-add-group-users" class="ui-state-default ui-corner-all">Add</button>
+					<button id="button-remove-group-users" class="ui-state-default ui-state-disabled ui-corner-all">Remove</button>
+					<button id="button-refresh-group-users" class="ui-state-default ui-corner-all">Refresh</button>
+				</div>
+				<table id="group-users-list"></table>
+			</div>
+			<div id="group-folders-section" class="details-data-section right">
+				<div class="toolbar">
+					<h1>Published Folders</h1>
+					<button id="button-add-group-folder" class="ui-state-default ui-corner-all">Add</button>
+					<button id="button-edit-group-folder" class="ui-state-default ui-state-disabled ui-corner-all">Edit</button>
+					<button id="button-remove-group-folder" class="ui-state-default ui-state-disabled ui-corner-all">Remove</button>
+					<button id="button-refresh-group-folders" class="ui-state-default ui-corner-all">Refresh</button>
+				</div>
+				<table id="group-folders-list"></table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="group-dialog" style="display:none">
+	<div class='form-data' id='group-name'>
+		<div class='title'>Group name:</div>
+		<input id='group-name-field' class='form-data-value' type='text' name='group' value=''>
+	</div>
+	<div class='form-data' id='group-description'>
+		<div class='title'>Description:</div>
+		<input id='group-description-field' class='form-data-value' type='text' name='description' value=''>
+	</div>
+</div>
+
+<div id="add-group-users-dialog" style="display:none">
+	<table id="add-users-list"></table>
+</div>
+
+<div id="add-group-folder-dialog" style="display:none">
+	<div class='form-data' id='published-folder'>
+		<div class='title'>Folder:</div>
+		<select id='published-folder-list' class='form-data-value' name='folder'>
+		</select>
+	</div>
+	<div class='form-data' id='default-folder-name'>
+		<div id="name-title">
+			<div class='title'>Default Name:</div>
+			<div class='titled-checkbox'><input id='use-default-folder-name' type="checkbox"/>Use default name</div>
+		</div>
+		<input id='published-folder-default-name' class='form-data-value' name='default-name' disabled="true">
+	</div>
+	<div class='form-data' id='folder-name'>
+		<div class='title'>Name:</div>
+		<input id='published-folder-name' class='form-data-value' type='text' name='name' value=''>
+	</div>
+</div>
+
+<div id="edit-group-folder-dialog" style="display:none">
+	<div class='form-data' id='edit-published-folder'>
+		<div class='title'>Path:</div>
+		<input id='published-folder-path' class='form-data-value' disabled="true" type='text' name='path' value=''>
+	</div>
+	<div class='form-data' id='edit-default-folder-name'>
+		<div id="edit-name-title">
+			<div class='title'>Default Name:</div>
+			<div class='titled-checkbox'><input id='edit-use-default-folder-name' type="checkbox"/>Use default name</div>
+		</div>
+		<input id='edit-published-folder-default-name' class='form-data-value' name='default-name' disabled="true">
+	</div>
+	<div class='form-data' id='edit-folder-name'>
+		<div class='title'>Name:</div>
+		<input id='edit-published-folder-name' class='form-data-value' type='text' name='name' value=''>
+	</div>
+</div>
