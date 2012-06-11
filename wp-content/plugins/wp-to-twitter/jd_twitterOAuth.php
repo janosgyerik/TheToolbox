@@ -2,63 +2,56 @@
 /*
  * Abraham Williams (abraham@abrah.am) http://abrah.am
  *
- * The first PHP Library to support OAuth for Twitter's REST API.
+ * The first PHP Library to support WPOAuth for Twitter's REST API.
+ *
  */
 
-/* Load OAuth lib. You can find it at http://oauth.net */
+/* Load WPOAuth lib. You can find it at http://WPOAuth.net */
 require_once('WP_OAuth.php');
 
 if (!class_exists('jd_TwitterOAuth')) {
 
 /**
- * Twitter OAuth class
+ * Twitter WPOAuth class
  */
 class jd_TwitterOAuth {
-  /* Contains the last HTTP status code returned. */
+  /* Contains the last HTTP status code returned */
   public $http_code;
   /* Contains the last API call. */
   public $url;
   /* Set up the API root URL. */
-  public $host = "https://api.twitter.com/1/";
+  public $host = "http://api.twitter.com/1/";
   /* Set timeout default. */
-  public $timeout = 30;
-  /* Set connect timeout. */
-  public $connecttimeout = 30; 
-  /* Verify SSL Cert. */
-  public $ssl_verifypeer = FALSE;
-  /* Respons format. */
   public $format = 'json';
   /* Decode returned json data. */
   public $decode_json = false;
-  /* Contains the last HTTP headers returned. */
-  public $http_info;
-  /* Set the useragnet. */
-  public $useragent = 'TwitterOAuth v0.2.0-beta2';
-  /* Immediately retry the API call if the response was not successful. */
-  //public $retry = TRUE;
+  /* Contains the last API call */
+  private $last_api_call;
+  /* containe the header */
+  public $http_header;
 
   /**
    * Set API URLS
    */
-  function accessTokenURL()  { return 'https://api.twitter.com/oauth/access_token'; }
-  function authenticateURL() { return 'https://api.twitter.com/oauth/authenticate'; }
-  function authorizeURL()    { return 'https://api.twitter.com/oauth/authorize'; }
-  function requestTokenURL() { return 'https://api.twitter.com/oauth/request_token'; }
+  function accessTokenURL()  { return "http://api.twitter.com/oauth/access_token"; }
+  function authenticateURL() { return "http://api.twitter.com/oauth/authenticate"; }
+  function authorizeURL()    { return "http://api.twitter.com/oauth/authorize"; }
+  function requestTokenURL() { return "http://api.twitter.com/oauth/request_token"; }
 
   /**
    * Debug helpers
    */
-  function lastStatusCode() { return $this->http_status; }
+  function lastStatusCode() { return $this->http_code; }
   function lastAPICall() { return $this->last_api_call; }
 
   /**
-   * construct TwitterOAuth object
+   * construct TwitterWPOAuth object
    */
-  function __construct($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL) {
+  function __construct($consumer_key, $consumer_secret, $WPOAuth_token = NULL, $WPOAuth_token_secret = NULL) {
     $this->sha1_method = new WPOAuthSignatureMethod_HMAC_SHA1();
     $this->consumer = new WPOAuthConsumer($consumer_key, $consumer_secret);
-    if (!empty($oauth_token) && !empty($oauth_token_secret)) {
-      $this->token = new WPOAuthConsumer($oauth_token, $oauth_token_secret);
+    if (!empty($WPOAuth_token) && !empty($WPOAuth_token_secret)) {
+      $this->token = new WPOAuthConsumer($WPOAuth_token, $WPOAuth_token_secret);
     } else {
       $this->token = NULL;
     }
@@ -68,17 +61,28 @@ class jd_TwitterOAuth {
   /**
    * Get a request_token from Twitter
    *
-   * @returns a key/value array containing oauth_token and oauth_token_secret
+   * @returns a key/value array containing WPOAuth_token and WPOAuth_token_secret
    */
-  function getRequestToken($oauth_callback = NULL) {
-    $parameters = array();
-    if (!empty($oauth_callback)) {
-      $parameters['oauth_callback'] = $oauth_callback;
-    } 
-    $request = $this->oAuthRequest($this->requestTokenURL(), 'GET', $parameters);
-    $token = WPOAuthUtil::parse_parameters($request);
-    $this->token = new WPOAuthConsumer($token['oauth_token'], $token['oauth_token_secret']);
+  function getRequestToken() {
+    $r = $this->WPOAuthRequest($this->requestTokenURL());
+    $token = $this->WPOAuthParseResponse($r);
+    $this->token = new WPOAuthConsumer($token['WPOAuth_token'], $token['WPOAuth_token_secret']);
     return $token;
+  }
+
+  /**
+   * Parse a URL-encoded WPOAuth response
+   *
+   * @return a key/value array
+   */
+  function WPOAuthParseResponse($responseString) {
+    $r = array();
+    foreach (explode('&', $responseString) as $param) {
+      $pair = explode('=', $param, 2);
+      if (count($pair) != 2) continue;
+      $r[urldecode($pair[0])] = urldecode($pair[1]);
+    }
+    return $r;
   }
 
   /**
@@ -86,160 +90,86 @@ class jd_TwitterOAuth {
    *
    * @returns a string
    */
-  function getAuthorizeURL($token, $sign_in_with_twitter = TRUE) {
-    if (is_array($token)) {
-      $token = $token['oauth_token'];
-    }
-    if (empty($sign_in_with_twitter)) {
-      return $this->authorizeURL() . "?oauth_token={$token}";
-    } else {
-       return $this->authenticateURL() . "?oauth_token={$token}";
-    }
+  function getAuthorizeURL($token) {
+    if (is_array($token)) $token = $token['WPOAuth_token'];
+    return $this->authorizeURL() . '?WPOAuth_token=' . $token;
   }
 
+
   /**
-   * Exchange request token and secret for an access token and
-   * secret, to sign API calls.
+   * Get the authenticate URL
    *
-   * @returns array("oauth_token" => "the-access-token",
-   *                "oauth_token_secret" => "the-access-secret",
-   *                "user_id" => "9436992",
-   *                "screen_name" => "abraham")
+   * @returns a string
    */
-  function getAccessToken($oauth_verifier = FALSE) {
-    $parameters = array();
-    if (!empty($oauth_verifier)) {
-      $parameters['oauth_verifier'] = $oauth_verifier;
-    }
-    $request = $this->oAuthRequest($this->accessTokenURL(), 'GET', $parameters);
-    $token = WPOAuthUtil::parse_parameters($request);
-    $this->token = new WPOAuthConsumer($token['oauth_token'], $token['oauth_token_secret']);
-    return $token;
-  }
-
-  /**
-   * One time exchange of username and password for access token and secret.
-   *
-   * @returns array("oauth_token" => "the-access-token",
-   *                "oauth_token_secret" => "the-access-secret",
-   *                "user_id" => "9436992",
-   *                "screen_name" => "abraham",
-   *                "x_auth_expires" => "0")
-   */  
-  function getXAuthToken($username, $password) {
-    $parameters = array();
-    $parameters['x_auth_username'] = $username;
-    $parameters['x_auth_password'] = $password;
-    $parameters['x_auth_mode'] = 'client_auth';
-    $request = $this->oAuthRequest($this->accessTokenURL(), 'POST', $parameters);
-    $token = WPOAuthUtil::parse_parameters($request);
-    $this->token = new WPOAuthConsumer($token['oauth_token'], $token['oauth_token_secret']);
-    return $token;
-  }
-
-  /**
-   * GET wrapper for oAuthRequest.
-   */
-  function get($url, $parameters = array()) {
-    $response = $this->oAuthRequest($url, 'GET', $parameters);
-    if ($this->format === 'json' && $this->decode_json) {
-      return json_decode($response);
-    }
-    return $response;
+  function getAuthenticateURL($token) {
+    if (is_array($token)) $token = $token['WPOAuth_token'];
+    return $this->authenticateURL() . '?WPOAuth_token=' . $token;
   }
   
   /**
-   * POST wrapper for oAuthRequest.
-   */
-  function post($url, $parameters = array()) {
-    $response = $this->oAuthRequest($url, 'POST', $parameters);
-    if ($this->format === 'json' && $this->decode_json) {
-      return json_decode($response);
-    }
-    return $response;
-  }
-
-  /**
-   * DELETE wrapper for oAuthReqeust.
-   */
-  function delete($url, $parameters = array()) {
-    $response = $this->oAuthRequest($url, 'DELETE', $parameters);
-    if ($this->format === 'json' && $this->decode_json) {
-      return json_decode($response);
-    }
-    return $response;
-  }
-
-  /**
-   * Format and sign an OAuth / API request
-   */
-  function oAuthRequest($url, $method, $parameters) {
-    if (strrpos($url, 'https://') !== 0 && strrpos($url, 'http://') !== 0) {
-      $url = "{$this->host}{$url}.{$this->format}";
-    }
-    $request = WPOAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $parameters);
-    $request->sign_request($this->sha1_method, $this->consumer, $this->token);
-    switch ($method) {
-    case 'GET':
-      return $this->http($request->to_url(), 'GET');
-    default:
-      return $this->http($request->get_normalized_http_url(), $method, $request->to_postdata());
-    }
-  }
-
-  /**
-   * Make an HTTP request
+   * Exchange the request token and secret for an access token and
+   * secret, to sign API calls.
    *
-   * @return API results
+   * @returns array("WPOAuth_token" => the access token,
+   *                "WPOAuth_token_secret" => the access secret)
    */
-  function http($url, $method, $postfields = NULL) {
-    $this->http_info = array();
-    $ci = curl_init();
-    /* Curl settings */
-    curl_setopt($ci, CURLOPT_USERAGENT, $this->useragent);
-    curl_setopt($ci, CURLOPT_CONNECTTIMEOUT, $this->connecttimeout);
-    curl_setopt($ci, CURLOPT_TIMEOUT, $this->timeout);
-    curl_setopt($ci, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ci, CURLOPT_HTTPHEADER, array('Expect:'));
-    curl_setopt($ci, CURLOPT_SSL_VERIFYPEER, $this->ssl_verifypeer);
-    curl_setopt($ci, CURLOPT_HEADERFUNCTION, array($this, 'getHeader'));
-    curl_setopt($ci, CURLOPT_HEADER, FALSE);
-
-    switch ($method) {
-      case 'POST':
-        curl_setopt($ci, CURLOPT_POST, TRUE);
-        if (!empty($postfields)) {
-          curl_setopt($ci, CURLOPT_POSTFIELDS, $postfields);
-        }
-        break;
-      case 'DELETE':
-        curl_setopt($ci, CURLOPT_CUSTOMREQUEST, 'DELETE');
-        if (!empty($postfields)) {
-          $url = "{$url}?{$postfields}";
-        }
+  function getAccessToken($token = NULL) {
+    $r = $this->WPOAuthRequest($this->accessTokenURL());
+    $token = $this->WPOAuthParseResponse($r);
+    $this->token = new WPOAuthConsumer($token['WPOAuth_token'], $token['WPOAuth_token_secret']);
+    return $token;
+  }
+/**
+* Wrapper for POST requests
+*/
+    function post($url, $parameters = array()) {
+    $response = $this->WPOAuthRequest( $url,$parameters,'POST' );
+    if ($this->format === 'json' && $this->decode_json) {
+      return json_decode($response);
     }
-
-    curl_setopt($ci, CURLOPT_URL, $url);
-    $response = curl_exec($ci);
-    $this->http_code = curl_getinfo($ci, CURLINFO_HTTP_CODE);
-    $this->http_info = array_merge($this->http_info, curl_getinfo($ci));
-    $this->url = $url;
-    curl_close ($ci);
     return $response;
   }
-
-  /**
-   * Get the header info to store.
-   */
-  function getHeader($ch, $header) {
-    $i = strpos($header, ':');
-    if (!empty($i)) {
-      $key = str_replace('-', '_', strtolower(substr($header, 0, $i)));
-      $value = trim(substr($header, $i + 2));
-      $this->http_header[$key] = $value;
+/**
+* Wrapper for GET requests
+*/
+    function get($url, $parameters = array()) {
+    $response = $this->WPOAuthRequest( $url,$parameters,'GET' );
+    if ($this->format === 'json' && $this->decode_json) {
+      return json_decode($response);
     }
-    return strlen($header);
-  }
-}
+    return $response;
+  }  
+  /**
+   * Format and sign an WPOAuth / API request
+   */
+  function WPOAuthRequest($url, $args = array(), $method = NULL) {
+    if (empty($method)) $method = empty($args) ? "GET" : "POST";
+    $req = WPOAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $args);
+    $req->sign_request($this->sha1_method, $this->consumer, $this->token);
+    
+    $response = false;
+    $url = null;
+    
+    switch ($method) {
+    case 'GET': 
+    	$url = $req->to_url();
+       	$response = wp_remote_get( $url );
+       	break;
+	case 'POST':
+		$url = $req->get_normalized_http_url();
+		$args = wp_parse_args($req->to_postdata());
+       	$response = wp_remote_post( $url, array('body'=>$args));
+       	break;
+    }
 
-} // class_exists check
+	if ( is_wp_error( $response ) )	return false;
+
+    $this->http_code = $response['response']['code']; 
+    $this->last_api_call = $url;
+	$this->format = 'json'; 
+	$this->http_header = $response['headers'];
+	
+	return $response['body'];	
+  } 
+}
+}

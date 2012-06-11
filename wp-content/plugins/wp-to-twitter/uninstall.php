@@ -87,5 +87,6 @@ delete_option( 'yourlslogin' );
 delete_option( 'jd_replace_character' );
 delete_option( 'jd_date_format' );
 delete_option( 'jd_keyword_format' );
-
+//Version
+delete_option( 'wp_to_twitter_version' );
 }

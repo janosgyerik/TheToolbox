@@ -673,32 +673,50 @@ p {
       .item .ratings ul li {
         background: none !important;
         height: 30px !important;
-        width: 110px !important; }
-      /* line 299, ../sass/partials/modules.scss */
+        width: 110px !important;
+        position: relative; }
+      /* line 300, ../sass/partials/modules.scss */
+      .item .ratings ul .rating {
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        text-indent: -9000px;
+        display: block;
+        z-index: 1; }
+      /* line 306, ../sass/partials/modules.scss */
       .item .ratings ul:hover {
         background-position: center -30px; }
-      /* line 302, ../sass/partials/modules.scss */
+      /* line 309, ../sass/partials/modules.scss */
       .item .ratings ul.rated {
         background-position: center bottom; }
-      /* line 306, ../sass/partials/modules.scss */
+      /* line 313, ../sass/partials/modules.scss */
       .item .ratings ul .s1 a {
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        text-indent: -9000px;
+        display: block;
+        text-decoration: none;
+        z-index: 10;
         height: 30px;
         width: 130px;
         background: none !important; }
-    /* line 313, ../sass/partials/modules.scss */
+    /* line 327, ../sass/partials/modules.scss */
     .item .ratings .meta {
       display: none; }
-  /* line 317, ../sass/partials/modules.scss */
+  /* line 331, ../sass/partials/modules.scss */
   .item .rated ul, .item .rated ul:hover, .item .loading ul {
     background-position: center bottom; }
-  /* line 320, ../sass/partials/modules.scss */
+  /* line 334, ../sass/partials/modules.scss */
   .item.hidden {
     display: none; }
 
-/* line 324, ../sass/partials/modules.scss */
+/* line 338, ../sass/partials/modules.scss */
 .techincal-dificulties {
   color: white; }
 
-/* line 327, ../sass/partials/modules.scss */
+/* line 341, ../sass/partials/modules.scss */
 .hidden {
   display: none !important; }

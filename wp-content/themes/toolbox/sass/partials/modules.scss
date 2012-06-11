@@ -295,6 +295,13 @@
 				background:none !important;
 				height:30px !important;
 				width:110px !important;
+				position:relative;
+			}
+			.rating{
+				position: absolute;
+				display: block;
+				@include hide-text();
+				z-index: 1;
 			}
 			&:hover{
 				background-position:center -30px;
@@ -304,6 +311,13 @@
 			}
 			.s1{
 				a{
+					position: absolute;
+					cursor: pointer;
+					left: 0;
+					top: 0;
+					@include hide-text();
+					text-decoration: none;
+					z-index: 10;
 					height:30px;
 					width:130px;
 					background:none !important;

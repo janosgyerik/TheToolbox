@@ -3,10 +3,10 @@ Contributors: joedolson
 Donate link: http://www.joedolson.com/donate.php
 Tags: twitter, microblogging, su.pr, bitly, yourls, redirect, shortener, post, links
 Requires at least: 2.9.2 (partial)
-Tested up to: 3.4-alpha
+Tested up to: 3.4-beta4
 Stable tag: trunk
 
-Posts a Twitter update when you update your WordPress blog or post to your blogroll, using your chosen URL shortening service. Requires PHP 5 and cURL. 
+Posts a Twitter update when you update your WordPress blog or post to your blogroll, using your chosen URL shortening service. Requires PHP 5. 
 
 == Description ==
 
@@ -22,6 +22,8 @@ Additional features include:
 * Support for XMLRPC remote clients
 
 Any status update you write which is longer than the available space will be truncated by the plugin. This applies to both default messages and to your custom messages.
+
+Upgrade to [WP Tweets Pro](http://www.joedolson.com/articles/wp-tweets-pro/) to gain additional features.
 
 Translations:
 
@@ -49,15 +51,56 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 == Changelog ==
 
+= 2.4.4 =
+
+* Bug fix: Truncation error if no crucial elements are truncatable
+* Bug fix: Unclosed if/else caused empty Settings link on plugins page. 
+* Bug fix: "Post on XMLRPC" option must not be selected if using WP Tweets Pro with XML RPC
+* Bug fix: Windows Live Writer (and perhaps other apps) send entity-converted characters on XMLRPC post; need to decode entities in text before sending to Twitter.
+* Bug fix/change: Provides option to switch to http connections to Twitter if https connection returns SSL errors.
+
+= 2.4.3 =
+
+* Bug fix: In some cases, Administrators were not granted permissions to add custom tweets and other capability restricted tasks.
+* MAJOR bug fix: broke an element of the authorization routine which caused an early exit out of posting to Twitter for some users.
+* Settings link on plugins listing incorrect if WP Tweets Pro enabled. 
+
+= 2.4.2 =
+
+* 2.4.1 had an error in the upgrade routine which broke the upgrade. 
+
+= 2.4.1 =
+
+* I had mistakenly restricted WP Tweets PRO administrators from setting their own accounts, which was a problem for sites with multiple admin-level authors.
+* Revised permissions model to use custom capability to control access to user accounts rather than default capabilities.
+* Also switched to custom capability to control access to custom tweet options.
+* URL to settings page pointed to wrong location if WP Tweets PRO was installed before configuring WP to Twitter.
+* Support request form submitted to invalid URL if WP Tweets PRO installed.
+* If append or prepend fields were in use, they were duplicated in Tweets on reposts.
+* Added option so that users can be allowed to toggle the Tweet/Don't Tweet custom option without being able to edit other permissions.
+
+= 2.4.0 =
+
+* Bug fix/change: Twitter automatically shortens all URLs sent. As a result, all URLs are by definition 19 characters for the purpose of Tweeting. WP to Twitter now measures the value of the #url# tag as 19 characters, regardless of actual length.
+* Category limiting can now either mean "tweet checked categories" or "don't tweet checked categories". 
+* Option to hide custom tweet box and options based on user roles.
+* User role permissions now support custom roles
+* Ability to determine the sequence in which fields are truncated or removed from Tweets if they exceed status length limits.
+* Replace cURL requirement with WP_HTTP wrapper.
+* Significant re-write of underlying code.
+* Redesign of settings pages.
+* Significant text revisions.
+* Release of [WP Tweets Pro](http://www.joedolson.com/articles/wp-tweets-pro/), a pro upgrade to WP to Twitter.
+
 = 2.3.18 =
 
 * Bug fix: resolved case where new backdated posts were treated as edits.
-* Some changes to tweet truncating routines to avoid modifying the URL during truncation.
+* Some changes to Tweet truncating routines to avoid modifying the URL during truncation.
 
 = 2.3.17 =
 
-* Bug fix: Custom tweet text not sent for custom post types if the post was not saved prior to publishing.
-* Bug fix: Scheduled posts would not tweet if certain plug-ins were installed, due to modifications of post dates.
+* Bug fix: Custom Tweet text not sent for custom post types if the post was not saved prior to publishing.
+* Bug fix: Scheduled posts would not Tweet if certain plug-ins were installed, due to modifications of post dates.
 
 = 2.3.16 =
 
@@ -72,7 +115,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 * Added reminder of your template format to WP to Twitter custom box
 * Moved tags from an option to a template tag.
 * Fixed bug where shortcodes were not stripped from post excerpts
-* Bug fix: If a scheduled post was edited once, without changing publishing time, custom tweet text was lost.
+* Bug fix: If a scheduled post was edited once, without changing publishing time, custom Tweet text was lost.
 * Added support for the app_publish_post hook
 * Bug fix: XMLRPC published edits to Twitter when post updates on edit disabled
 
@@ -89,11 +132,11 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 * Links added in link manager were getting run through the manual WP link shortener
 * Added appropriate normalizer call for PHP versions above 5
-* Adjustment to tweet truncation to hopefully avoid runaway truncating.
+* Adjustment to Tweet truncation to hopefully avoid runaway truncating.
 * Added a new FAQ to my web site about character counting.
 * Fixed URL wrapper error with fopen()
-* Bug fix: Switched 'tweet this post' checkbox to a radio selector for simpler logic.
-* Now saving all past tweets for each post.
+* Bug fix: Switched 'Tweet this post' checkbox to a radio selector for simpler logic.
+* Now saving all past Tweets for each post.
 
 = 2.3.11 =
 
@@ -111,9 +154,9 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 * Fixed issue with category detection
 * Changed one function name to a non-generic name.
 * Modified remote URL calls; should fix problem contacting Bit.ly
-* Added template tag #commenter# available in comment tweet template. Use with caution.
+* Added template tag #commenter# available in comment Tweet template. Use with caution.
 * Added plug-in support request form.
-* Fixed bug where custom tweet text was over written in a quick edit
+* Fixed bug where custom Tweet text was over written in a quick edit
 * Fixed "Don't Tweet this Post' checkbox
 * Added Goo.gl as an additional URL shortener.
 * Added custom keyword option for YOURLS shortener.
@@ -124,8 +167,8 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 = 2.3.7 =
 
-* Double tweeting problem fixed.
-* Missing custom tweets fixed.
+* Double Tweeting problem fixed.
+* Missing custom Tweets fixed.
 * Revised WordPress version support notes.
 * I hope.
 
@@ -145,7 +188,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 * Re-wrote instructions for connecting to OAuth to reflect redesigned Twitter Apps registration process
 * Code clean-up to remove some redundancies
 * Bug fixes: 
-	- Occasional double tweeting on future post seems to be fixed.
+	- Occasional double Tweeting on future post seems to be fixed.
 	- Tweeting on edits/quick edits when not checked
 * Added Ukrainian translation
 
@@ -163,13 +206,13 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 = 2.3.1 =
 
-* Added version check and update cycle into tweet routine
+* Added version check and update cycle into Tweet routine
 
 = 2.3.0 =
 
 * Added support for custom post types.
-* Added support for tweeting when comments are posted.
-* Bug fix: results of checking/unchecking 'Don't tweet this' box not consistent.
+* Added support for Tweeting when comments are posted.
+* Bug fix: results of checking/unchecking 'Don't Tweet this' box not consistent.
 * Added Japanese translation. [kndb](http://blog.layer8.sh/)
 
 = 2.2.12 =
@@ -193,12 +236,12 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 * Added cURL check.
 * Due to ongoing problems with Cli.gs, removed that URL shortening service and replaced with Su.pr
 * Changed default shortening to 'no shortening'
-* Saves every tweet into post meta on save; adds link to re-post status update in WP to Twitter post box.
+* Saves every Tweet into post meta on save; adds link to re-post status update in WP to Twitter post box.
 * Revised error messages to increase detail.
 
 = 2.2.8 =
 
-* Enhancement: protect against duplicate tweets
+* Enhancement: protect against duplicate Tweets
 * Bug fix: hash tag replacement with spaces problematic if alphanumeric limit also set
 * Bug fix: issue with scheduled posts posting when 'Do not Tweet' checked.
 * Added Danish translation by Rasmus Himmelstrup
@@ -363,7 +406,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 = 2.0.0 = 
 
 * Fixed bug introduced in WordPress 2.9 where logged in users could only edit their own profiles and associated issues.
-* Fixed bug which caused #url# to repeatedly be added to the end of tweet texts on reactivation or upgrade.
+* Fixed bug which caused #url# to repeatedly be added to the end of Tweet texts on reactivation or upgrade.
 * Fixed bug which generated shortener API error messages when no URL shortener was used.
 * Fixed bug which prevented display of URL on edit screen if no URL shortener was used.
 * Added Spanish translation courtesy of [David Gil P&eacute;rez](http://www.sohelet.com)
@@ -409,7 +452,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 = 1.5.2 = 
 
 * Minor code cleanup
-* Fixed uncommon bug where draft posts would not tweet when published.
+* Fixed uncommon bug where draft posts would not Tweet when published.
 * Fixed bug where #title# shortcode wouldn't work due to prior URL encoding. (Also covers some other obscure bugs.) Thanks to [Daniel Chcouri](http://www.anarchy.co.il) for the great catch.
 * Added new shortcode (#category#) to fetch the first post category.
 * Provided a substitute function for hosts not supportin mb_substr().
@@ -432,9 +475,9 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 = 1.4.11 =
 
-* Fixed a bug which allowed editing of posts to be tweeted if status updates on editing Pages were permitted.
+* Fixed a bug which allowed editing of posts to be Tweeted if status updates on editing Pages were permitted.
 * Fixed a bug in the support check routine which caused all Cli.gs tests to fail.
-* Streamlined logic controlling whether a new or edited item should be tweeted.
+* Streamlined logic controlling whether a new or edited item should be Tweeted.
 * Added Italian translation. Thanks to [Gianni Diurno](http://www.gidibao.net)!
 
 = 1.4.10 =
@@ -510,7 +553,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 = 1.3.4 = 
 
-* Bug fix: html tags in titles are stripped from tweets
+* Bug fix: html tags in titles are stripped from Tweets
 * Bug fix: thanks to [Andrea Baccega](http://www.andreabaccega.com), some problems related to WP 2.7.1 should be fixed. 
 * Added optional prepend/append text fields.
 
@@ -522,7 +565,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 = 1.3.2 =
 
-* Added a #url# shortcode so you can decide where your short URL will appear in the tweet.
+* Added a #url# shortcode so you can decide where your short URL will appear in the Tweet.
 * Couple small bug fixes.
 * Small changes to the settings page.
 
@@ -541,7 +584,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 *Support for multiple authors with independent Twitter &amp; Cligs accounts. 
 *Other minor textual revisions, addition of API availability check in the Settings panel. 
-*Bugfixes: If editing a post by XMLRPC, you could not disable tweeting your edits. FIXED. 
+*Bugfixes: If editing a post by XMLRPC, you could not disable Tweeting your edits. FIXED. 
 
 = 1.2.8 =
 
@@ -556,7 +599,7 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 *Bugfix with XMLRPC publishing -- controls to disable XMLRPC publishing now work correctly.
 *Bugfix with error reporting and clearing.
-*Added the option to supply an alternate URL along with your post, to be tweeted in place of the WP permalink.
+*Added the option to supply an alternate URL along with your post, to be Tweeted in place of the WP permalink.
 
 = 1.2.5 =
  
@@ -578,11 +621,9 @@ Contributions by [Thor Erik](http://www.thorerik.net), Bill Berry and [Andrea Ba
 
 1. Upload the `wp-to-twitter` folder to your `/wp-content/plugins/` directory
 2. Activate the plugin using the `Plugins` menu in WordPress
-3. Go to Settings > WP->Twitter
-4. Adjust the WP->Twitter Options as you prefer them. 
-5. Supply your Twitter username and login.
-6. **Optional**: Configure your choice of URL shortener. Default is to use the Su.pr URL shortener from Stumbleupon as a short URL.
-7. That's it!  You're all set.
+3. Go to Settings > WP to Twitter
+4. Adjust the WP to Twitter Options as you prefer them. 
+5. Create a Twitter application at Twitter and Configure your OAuth setup keys
 
 == Frequently Asked Questions ==
 
@@ -592,7 +633,7 @@ Right here: [WP to Twitter FAQ](http://www.joedolson.com/articles/wp-to-twitter/
 
 = How can I help you make WP to Twitter a better plug-in? =
 
-Writing and maintaining a plug-in is a lot of work. You can help me by providing detailed support requests (which saves me time), or by providing financial support via my [plug-in donations page](http://www.joedolson.com/donate.php). Believe me, any small donation really makes a difference!
+Writing and maintaining a plug-in is a lot of work. You can help me by providing detailed support requests (which saves me time), or by providing financial support, either via my [plug-in donations page](http://www.joedolson.com/donate.php) or by [upgrading to WP Tweets Pro](http://www.joedolson.com/articles/wp-tweets-pro/). Believe me, any small donation really makes a difference!
 
 == Screenshots ==
 
@@ -602,4 +643,4 @@ Writing and maintaining a plug-in is a lot of work. You can help me by providing
 
 == Upgrade Notice ==
 
-* 2.3.17 Bug fixes for scheduled posts in combination with certain plug-ins; custom tweet text for custom post types with instant publish
+* 2.4.4 Various bug fixes. 

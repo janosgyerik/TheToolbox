@@ -4,7 +4,7 @@
 }
 
 .ratings:after{
-  content:".";
+  content:'.';
   display:block;
   clear:both;
   visibility:hidden;
@@ -20,10 +20,11 @@
   background: transparent url(star.png) repeat-x;
 }
 
+/* !important because some bad themes override our rules :( */
 .ratings ul, .ratings li{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .ratings ul{
@@ -45,7 +46,7 @@
   width:16px;
   height: 16px;
   text-decoration: none;
-  text-indent: -9999px;
+  text-indent: -500px;
   z-index: 10;
 }
 

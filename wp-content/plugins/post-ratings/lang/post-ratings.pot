@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Post Ratings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-19 04:39+0200\n"
+"POT-Creation-Date: 2012-05-25 15:15+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: http://digitalnature.eu <hello@digitalnature.eu>\n"
+"Last-Translator: xs\n"
 "Language-Team: digitalnature.eu <hello@digitalnature.eu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,170 +16,173 @@ msgstr ""
 "X-Poedit-SearchPath-0: c:\\wamp\\www\\wpmu\\wp-content\\plugins\\post-ratings\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:141
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:238
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:239
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:338
 msgid "Post Ratings"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:169
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:267
 msgid "Settings"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:230
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:330
 msgid "Home"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:231
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:331
 msgid "Archives"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:232
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:332
 msgid "Single pages"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:233
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:333
 msgid "Search results"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:243
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:343
 msgid "Global stats"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:245
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:345
 #, php-format
 msgid "%1$s votes (on %2$s posts)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:246
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:346
 #, php-format
 msgid "Average vote count per post: %s"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:247
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:347
 #, php-format
 msgid "Average rating per post: %s"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:256
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:356
 msgid "Access level"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:260
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:360
 msgid "Allow unregistered users to vote"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:266
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:366
 msgid "Maximum rating"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:269
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:369
 msgid "Changing this option will reset existing post rating records"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:275
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:375
 msgid "Bayesian rating (score) formula"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:298
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:384
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:391
+#, php-format
+msgid "from %s"
+msgstr ""
+
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:398
 msgid "I have my own formula:"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:300
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:400
 msgid "Legend"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:305
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:405
 msgid "Global average number of votes per post"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:307
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:407
 msgid "Global number of votes (from all posts)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:309
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:409
 msgid "Number of votes from the current post"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:311
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:411
 #, php-format
 msgid "Global average rating per post (from 1 to %d)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:313
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:413
 #, php-format
 msgid "Average rating of the current post (from 1 to %d)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:315
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:415
 #, php-format
 msgid "Minimum vote count per post to consider (%d by default)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:317
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:417
 #, php-format
 msgid "Maximum rating, see option above (currently %d)"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:326
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:426
 msgid "Allow ratings on"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:342
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:442
 msgid "Locations of the rate links"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:348
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:448
 msgid "Before post content"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:353
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:453
 msgid "After post content "
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:358
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:458
 msgid "I have my own action hook:"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:364
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:464
 #, php-format
 msgid "You can also add it manually anywhere by using the %s shortcode"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:371
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:471
 msgid "Page visibility"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:391
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:491
 msgid "Save Changes"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:395
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:495
 msgid "Delete rating records from all posts"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:494
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:506
+#, php-format
+msgid "Found a bug, having a feature request or just looking for help on using this plugin? Then head on to the %s."
+msgstr ""
+
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:506
+msgid "Post Ratings support forums"
+msgstr ""
+
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:679
 msgid "Invalid vote! Cheatin' uh?"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:555
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:754
 msgid "You cannot rate this post!"
 msgstr ""
 
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:645
-#, php-format
-msgid "%1$s vote, %2$s avg. rating (%3$s%% score)"
-msgid_plural "%1$s votes, %2$s avg. rating (%3$s%% score)"
-msgstr[0] ""
-msgstr[1] ""
-
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:679
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:822
 #, php-format
 msgid "Your '%s' action is must run in a post's context!"
-msgstr ""
-
-#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/post-ratings.php:774
-#, php-format
-msgid "Give %1$d out of %2$d stars"
 msgstr ""
 
 #: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/widget.php:28
@@ -301,6 +304,18 @@ msgstr ""
 #, php-format
 msgid "%d vote"
 msgid_plural "%d votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/templates/post-ratings-control.php:53
+#, php-format
+msgid "Give %1$d out of %2$d stars"
+msgstr ""
+
+#: c:\wamp\www\wpmu\wp-content\plugins\post-ratings/templates/post-ratings-control.php:66
+#, php-format
+msgid "%1$s vote, %2$s avg. rating (%3$s%% score)"
+msgid_plural "%1$s votes, %2$s avg. rating (%3$s%% score)"
 msgstr[0] ""
 msgstr[1] ""
 

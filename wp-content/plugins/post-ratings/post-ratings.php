@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Post Ratings
-Version: 2.1
+Version: 2.4
 Plugin URI: http://digitalnature.eu/forum/plugins/post-ratings/
 Description: Simple, developer-friendly, straightforward post rating plugin. Relies on post meta to store avg. rating / vote count.
 Author: digitalnature
 Author URI: http://digitalnature.eu/
-Text Domain: post_ratings
+Text Domain: post-ratings
 Domain Path: /lang
 */
 
@@ -16,7 +16,7 @@ Domain Path: /lang
  * Public methods you can call from outside:
  *
  *   PostRatings()->getControl()                 - gets the rate links
- *   PostRatings()->CurrentUserCanRate($post_id) - checks if the current user can rate that post
+ *   PostRatings()->currentUserCanRate($post_id) - checks if the current user can rate that post
  *   PostRatings()->getTopRated($options)        - gets a list of top rated posts...
  *
  *
@@ -35,35 +35,40 @@ class PostRatings{
 
 
   const
-    VERSION   = '2.1',                                      // plugin version
-    ID        = 'post_ratings',                             // internally used for text domain, theme option group name etc.
-    MIN_VOTES = 1,                                          // minimum vote count (MV)
-    BR1       = '(v / (v + MV)) * r + (MV / (v + MV)) * R', // bayesian rating formula: the IMDB version
-    BR2       = '((AV * R) + (v * r)) / (AV + v)';          // bayesian rating formula: thebroth.com version
+    VERSION      = '2.4',                                                   // plugin version
+    PROJECT_URI  = 'http://digitalnature.eu/forum/plugins/post-ratings/',   // url to support forums
+    ID           = 'post-ratings',                                          // internally used for text domain, theme option group name etc.
+    MIN_VOTES    = 1,                                                       // minimum vote count (MV)
+    BR1          = '(v / (v + MV)) * r + (MV / (v + MV)) * R',              // bayesian rating formula: the IMDB version
+    BR2          = '((AV * R) + (v * r)) / (AV + v)';                       // bayesian rating formula: thebroth.com version
 
   protected static $instance;
 
   protected
-    $options  = null,
+    $options     = null,
+
+    // stores rated post IDs for the current session;
+    // we're using this for to get the rated state in our ajax calls
+    $rated_posts = array(),
 
     // default option values
-    $defaults = array(
-                  'version'     => self::VERSION,
-                  'anonymous_vote'   => true,
-                  'max_rating'       => 5,
-                  'bayesian_formula' => self::BR1,
-                  'user_formula'     => '',
-                  'custom_filter'    => '',
-                  'before_post'      => false,
-                  'after_post'       => true,
-                  'post_types'       => array('post'),
-                  'visibility'       => array('home', 'singular'),  // same as WP conditional "tags", but with "is_" omitted
+    $defaults    = array(
+                     'version'     => self::VERSION,
+                     'anonymous_vote'   => true,
+                     'max_rating'       => 5,
+                     'bayesian_formula' => self::BR1,
+                     'user_formula'     => '',
+                     'custom_filter'    => '',
+                     'before_post'      => false,
+                     'after_post'       => true,
+                     'post_types'       => array('post'),
+                     'visibility'       => array('home', 'singular'),  // same as WP conditional "tags", but with "is_" omitted
 
-                  // internal, global stats
-                  'avg_rating'       => 0,
-                  'num_votes'        => 0,
-                  'num_rated_posts'  => 0,
-                );
+                     // internal, global stats
+                     'avg_rating'       => 0,
+                     'num_votes'        => 0,
+                     'num_rated_posts'  => 0,
+                   );
 
 
 
@@ -106,6 +111,8 @@ class PostRatings{
 
     return self::$instance;
   }
+
+
 
 
 
@@ -201,11 +208,11 @@ class PostRatings{
     // you cannot let locate_template to load your template
     // because WP devs made sure you can't pass
     // variables to your template :(
-    $_located = locate_template($_name, false, false);
+    $_located = locate_template("{$_name}.php", false, false);
 
     // use the default one if the (child) theme doesn't have it
     if(!$_located)
-      $_located = dirname(plugin_basename(__FILE__)).'/templates/'.$_name.'.php';
+      $_located = dirname(__FILE__).'/templates/'.$_name.'.php';
 
     unset($_name);
 
@@ -213,8 +220,12 @@ class PostRatings{
     if($_vars)
       extract($_vars);
 
+    ob_start();
+
     // load it
     require $_located;
+
+    return ob_get_clean();
   }
 
 
@@ -355,7 +366,7 @@ class PostRatings{
             <th scope="row"><?php _e('Maximum rating', self::ID); ?></th>
             <td>
               <input type="text" size="3" name="<?php echo self::ID; ?>[max_rating]" value="<?php echo $max_rating; ?>" />
-              <p><span class="description"><?php _e('Changing this option will reset existing post rating records'); ?></span></p>
+              <p><span class="description"><?php _e('Changing this option will reset existing post rating records', self::ID); ?></span></p>
             </td>
           </tr>
 
@@ -370,21 +381,21 @@ class PostRatings{
                <label for="bayesian_formula_1">
                  <input id="bayesian_formula_1" name="<?php echo self::ID; ?>[bayesian_formula]" type="radio" value="<?php echo self::BR1; ?>" <?php checked($bayesian_formula, self::BR1); ?> />
 
-                  <code style="font-size: 14px;">(<em>v</em> / (<em>v</em> + <strong>MV</strong>)) * <em>r</em> + (<strong>MV</strong> / (<em>v</em> + <strong>MV</strong>)) * <strong>R</strong></code> (from <a href="http://en.wikipedia.org/wiki/Internet_Movie_Database#User_ratings_of_films" target="_blank">IMDB</a>)
+                  <code style="font-size: 14px;">(<em>v</em> / (<em>v</em> + <strong>MV</strong>)) * <em>r</em> + (<strong>MV</strong> / (<em>v</em> + <strong>MV</strong>)) * <strong>R</strong></code> (<?php printf(__('from %s', self::ID), '<a href="http://en.wikipedia.org/wiki/Internet_Movie_Database#User_ratings_of_films" target="_blank">IMDB</a>'); ?>)
                </label>
                </p>
 
                <p>
                <label for="bayesian_formula_2">
                  <input id="bayesian_formula_2" name="<?php echo self::ID; ?>[bayesian_formula]" type="radio" value="<?php echo self::BR2; ?>" <?php checked($bayesian_formula, self::BR2); ?> />
-                 <code style="font-size: 14px;">((<strong>AV</strong> * <strong>R</strong>) + (<em>v</em> * <em>r</em>)) / (<strong>AV</strong> + <em>v</em>)</code> (from <a href="http://www.thebroth.com/blog/118/bayesian-rating" target="_blank">thebroth</a>)
+                 <code style="font-size: 14px;">((<strong>AV</strong> * <strong>R</strong>) + (<em>v</em> * <em>r</em>)) / (<strong>AV</strong> + <em>v</em>)</code> (<?php printf(__('from %s', self::ID), '<a href="https://gist.github.com/44522/" target="_blank">thebroth</a>'); ?>)
                </label>
                </p>
 
                <p>
                <label for="user_formula">
                  <input id="user_formula" name="<?php echo self::ID; ?>[bayesian_formula]" type="radio" value="0" <?php checked($bayesian_formula, 0); ?> />
-                 <?php _e('I have my own formula:'); ?>
+                 <?php _e('I have my own formula:', self::ID); ?>
                  <input <?php if(!current_user_can('edit_plugins')): ?>disabled="disabled"<?php endif; ?> type=text name="<?php echo self::ID; ?>[user_formula]" size="46" class="code" value="<?php echo $user_formula; ?>" />
                </label> <a href="#" onclick="jQuery('#legend').toggle();">(<?php _e('Legend', self::ID); ?>)</a>
                </p>
@@ -491,6 +502,9 @@ class PostRatings{
         </table>
 
       </form>
+      <div style="background:#eee;padding: 5px 10px;margin: 10px 5px;">
+        <?php printf(__('Found a bug, having a feature request or just looking for help on using this plugin? Then head on to the %s.', self::ID), '<a href="'.self::PROJECT_URI.'">'.__('Post Ratings support forums', self::ID).'</a>'); ?>
+      </div>
     </div>
     <?php
   }
@@ -509,7 +523,7 @@ class PostRatings{
     wp_enqueue_script(self::ID, plugins_url('post-ratings.js', __FILE__), array('jquery'), self::VERSION, true);
 
     // note that Atom-based themes alread have this variable "localized"
-    if(!class_exists('Atom') && (!defined('Atom::VERSION')))
+    if(!class_exists('Atom') || (class_exists('Atom') && (!defined('Atom::VERSION'))))
       wp_localize_script(self::ID, 'post_ratings', array('blog_url' => home_url('/')));
 
     // allow themes to override css
@@ -537,10 +551,45 @@ class PostRatings{
   *
   * @since    1.0
   * @param    int $post_id     Post ID
-  * @return   array            Rating and vote count
+  * @return   array            Rating, vote count and bayesian rating
   */
   public function getRating($post_id){
-    return array((float)get_post_meta($post_id, 'rating', true), (int)get_post_meta($post_id, 'votes', true));
+
+    $options = $this->getOptions();
+    extract($options);
+
+    $rating = (float)get_post_meta($post_id, 'rating', true);
+    $votes = (int)get_post_meta($post_id, 'votes', true);
+
+    $bayesian_rating = 0;
+
+    if($votes != 0){
+      $avg_num_votes = ($num_rated_posts != 0) ? ($num_votes / $num_rated_posts) : 0;
+
+      $identifiers = array(
+        'AV' => $avg_num_votes,
+        'MV' => self::MIN_VOTES,
+        'MR' => $max_rating,
+        'V'  => $num_votes,
+        'v'  => $votes,
+        'R'  => $avg_rating,
+        'r'  => $rating,
+      );
+
+      if(!$bayesian_formula)
+        $bayesian_formula = $user_formula;
+
+      if(!$bayesian_formula)
+        $bayesian_formula = 'r';
+
+      $bayesian_formula = strtr($bayesian_formula, $identifiers);
+
+      // safe eval - only super admins can set their own formula
+      $bayesian_rating = (float)@eval("return ({$bayesian_formula});");
+      $bayesian_rating = 100 * ($bayesian_rating / $max_rating);
+    }
+
+    return compact('rating', 'votes', 'bayesian_rating');
   }
 
 
@@ -557,6 +606,34 @@ class PostRatings{
       $key .= '_'.get_current_blog_id();
 
     return $key;
+  }
+
+
+
+ /*
+  * Attempt to get the visitor's IP address
+  *
+  * @since    2.3
+  * @return   string
+  */
+  private function getIP(){
+
+    if(isset($_SERVER['HTTP_CLIENT_IP']))
+      return $_SERVER['HTTP_CLIENT_IP'];
+
+    if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+      return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+    if(isset($_SERVER['HTTP_X_FORWARDED']))
+      return $_SERVER['HTTP_X_FORWARDED'];
+
+    if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+      return $_SERVER['HTTP_FORWARDED_FOR'];
+
+    if(isset($_SERVER['HTTP_FORWARDED']))
+      return $_SERVER['HTTP_FORWARDED'];
+
+    return $_SERVER['REMOTE_ADDR'];
   }
 
 
@@ -589,11 +666,12 @@ class PostRatings{
     // this is our $.ajax request
     }else{
 
+      defined('DOING_AJAX') or define('DOING_AJAX', true);
+
       $post_id  = (int)$_GET['post_id'];
       $voted    =  min(max((int)$_GET['rate'], 1), $max_rating);
       $error    = '';
       $post     = &get_post($post_id);
-      $user_ip  = $_SERVER['REMOTE_ADDR'];
       $rating   = 0;
       $votes    = 0;
 
@@ -603,10 +681,10 @@ class PostRatings{
       }else{
 
         // get current post rating and vote count
-        list($rating, $votes) = $this->getRating($post->ID);
+        extract($this->getRating($post->ID));
 
         // vote seems valid, register it
-        if($this->CurrentUserCanRate($post_id)){
+        if($this->currentUserCanRate($post_id)){
 
           // increase global post rate count if this is the first vote
           if($votes < 1)
@@ -635,16 +713,16 @@ class PostRatings{
           $posts_rated = array_map('intval', array_filter($posts_rated));
 
           // add user's IP to the cache
-          $ip_cache[$post_id][] = $user_ip;
+          $ip_cache[$post_id][] = $this->getIP();
 
           // keep it light, only 10 records per post and maximum 10 post records (=> max. 100 ip entries)
           // also, the data gets deleted after 2 weeks if there's no activity during this time...
 
-          if(count($ip_cache) > 10)
-            array_shift($ip_cache);
-
           if(count($ip_cache[$post_id]) > 10)
             array_shift($ip_cache[$post_id]);
+
+          if(count($ip_cache) > 10)
+            array_shift($ip_cache);
 
           set_transient('post_ratings_ip_cache', $ip_cache, 60 * 60 * 24 * 14);
 
@@ -667,6 +745,8 @@ class PostRatings{
           $posts_rated[] = $post_id;
           setcookie($this->getRecordsKey('posts_rated'), implode('-', $posts_rated),  time() + 60 * 60 * 24 * 90, '/'); // expires in 90 days
 
+          $this->rated_posts[] = $post_id;
+
           do_action('rated_post', $post_id);
           $this->clearQueryCache();
 
@@ -680,14 +760,12 @@ class PostRatings{
       echo json_encode(array(
         'error'      => $error,
         'rating'     => sprintf('%.2F', $rating),
-        'text'       => esc_attr(apply_filters('post_ratings_current_rating', sprintf('%.2F / %d', $rating, $max_rating), $rating, $max_rating)),
         'max_rating' => $max_rating,
         'votes'      => $votes,
-        'status'     => $this->FormatRatingMeta($rating, $votes),
+        'html'       => $this->getControl($post_id, true),
       ));
 
       exit;
-
     }
 
   }
@@ -716,55 +794,6 @@ class PostRatings{
     // and if this ID doesn't match with the one on the user's computer then expire his cookie
     if(isset($_COOKIE[$this->getRecordsKey('posts_rated')]))
       setcookie($this->getRecordsKey('posts_rated'), null, -1, '/');
-  }
-
-
-
- /*
-  * Returns a formatted string containing the post rating and vote count info
-  *
-  * @since     1.0
-  * @param     int $rating
-  * @param     int $votes
-  * @return    string
-  */
-  public function FormatRatingMeta($rating, $votes){
-
-    $options = $this->getOptions();
-    extract($options);
-
-    $bayesian_rating = 0;
-
-    if($votes != 0){
-      $avg_num_votes = ($num_rated_posts != 0) ? ($num_votes / $num_rated_posts) : 0;
-
-      $identifiers = array(
-        'AV' => $avg_num_votes,
-        'MV' => self::MIN_VOTES,
-        'MR' => $max_rating,
-        'V'  => $num_votes,
-        'v'  => $votes,
-        'R'  => $avg_rating,
-        'r'  => $rating,
-      );
-
-      if(!$bayesian_formula)
-        $bayesian_formula = $user_formula;
-
-      if(!$bayesian_formula)
-        $bayesian_formula = 'r';
-
-      $bayesian_formula = strtr($bayesian_formula, $identifiers);
-
-      // safe eval - only super admins can set their own formula
-      $bayesian_rating = (float)@eval("return ({$bayesian_formula});");
-      $bayesian_rating = 100 * ($bayesian_rating / $max_rating);
-    }
-
-    $text = sprintf(_n('%1$s vote, %2$s avg. rating (%3$s%% score)', '%1$s votes, %2$s avg. rating (%3$s%% score)', $votes, self::ID),
-              sprintf('<strong class="votes">%d</strong>', $votes), sprintf('<strong>%.2F</strong>', $rating), sprintf('<strong>%d</strong>', $bayesian_rating));
-
-    return apply_filters('post_ratings_meta_text', $text, $votes, $rating, $bayesian_rating);
   }
 
 
@@ -855,48 +884,34 @@ class PostRatings{
 
     $continue = false;
 
-    // page visibility check
-    foreach($visibility as $page)
-      if(call_user_func("is_{$page}"))
+    if(!$ignore_visibility_setting){
+
+      // page visibility check
+      foreach($visibility as $page)
+        if(call_user_func("is_{$page}"))
+          $continue = true;
+
+      // cpt archive check
+      if(in_array('archive', $visibility) && is_post_type_archive($post_types))
         $continue = true;
 
-    // cpt archive check
-    if(in_array('archive', $visibility) && is_post_type_archive($post_types))
-      $continue = true;
+      $continue = apply_filters('post_ratings_visibility', $continue);
 
-    $continue = apply_filters('post_ratings_visibility', $continue);
+    }
 
     if($continue || $ignore_visibility_setting){
 
       // get current post rating
-      list($rating, $votes) = $this->getRating($post_id);
-      $can_rate = $this->CurrentUserCanRate($post_id);
+      extract($this->getRating($post_id));
 
-      $current_rating = apply_filters('post_ratings_current_rating', sprintf('%.2F / %d', $rating, $max_rating), $rating, $max_rating);
+      $post = get_post($post_id);
+      setup_postdata($post);
 
-      // microdata for google, see-- http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146645
-      // @todo, in the future: use schema.org format
-      $control[] = '<div class="ratings '.((is_singular()) ? 'hreview-aggregate' : '').'">';
+      $loaded = $this->loadTemplate('post-ratings-control', compact('rating', 'votes', 'bayesian_rating', 'max_rating'));
 
-      if(is_singular())
-        $control[] = '<span class="item"><span class="fn">'.get_the_title().'</span></span>';
+      wp_reset_postdata();
 
-      $control[] = '<ul '.(!$can_rate ? 'class="rated"' : '').' data-post="'.$post_id.'" style="width:'.($max_rating * 16).'px" title="'.esc_attr($current_rating).'">';
-      $control[] = '<li class="rating" style="width:'.($rating * 16).'px"><span class="average">'.$current_rating.'</span> <span class="best">'.$max_rating.'</span></li>';
-
-      if($can_rate)
-        for($i = 1; $i <= $max_rating; $i++){
-          $title = apply_filters('post_ratings_control_title', sprintf(__('Give %1$d out of %2$d stars', self::ID), $i, $max_rating), $i, $max_rating);
-          $text = apply_filters('post_ratings_control_text', sprintf('%d / %d', $i, $max_rating), $i, $max_rating);
-          $control[] = '<li class="s'.$i.'"><a title="'.esc_attr($title).'">'.$text.'</a></li>';
-        }
-
-      $control[] = '</ul>';
-      $control[] = '<div class="meta">'.$this->FormatRatingMeta($rating, $votes).'</div>';
-      $control[] = '</div>';
-
-      return implode("\n", $control);
-
+      return $loaded;
     }
 
     return false;
@@ -908,12 +923,19 @@ class PostRatings{
   * Checks if the current user can rate a post.
   *
   * @since    1.0
-  * @param    int $post_id     Post ID to check
+  * @param    int $post_id     Optional, post ID to check (if not given, the global $post is used)
   * @return   bool
   */
-  public function CurrentUserCanRate($post_id){
+  public function currentUserCanRate($post_id = false){
+
+    global $post;
+
+    $post_id = $post_id ? $post_id : $post->ID;
 
     $can_rate = false;
+
+    if(in_array($post_id, $this->rated_posts))
+      return false;
 
     // check if ratings are enabled for this post type
     if(in_array(get_post_type($post_id), $this->getOptions('post_types')))
@@ -924,13 +946,8 @@ class PostRatings{
         // last 100 IPs
         $ip_cache = get_transient('post_ratings_ip_cache');
 
-
-
         // client cookie
         $posts_rated = isset($_COOKIE[$this->getRecordsKey('posts_rated')]) ? explode('-', $_COOKIE[$this->getRecordsKey('posts_rated')]) : array();
-
-        // current user IP
-        $user_ip = $_SERVER['REMOTE_ADDR'];
 
         // also get user meta rating records if user is logged in
         if(is_user_logged_in()){
@@ -938,7 +955,7 @@ class PostRatings{
           $posts_rated = array_merge($posts_rated, (array)get_user_meta($user->ID, $this->getRecordsKey('posts_rated'), true));
         }
 
-        $can_rate = !((isset($ip_cache[$post_id]) && in_array($user_ip, $ip_cache[$post_id])) || in_array($post_id, $posts_rated));
+        $can_rate = !((isset($ip_cache[$post_id]) && in_array($this->getIP(), $ip_cache[$post_id])) || in_array($post_id, $posts_rated));
 
       }
 
@@ -1097,3 +1114,35 @@ function PostRatings(){
 
 
 PostRatings();
+
+
+
+
+
+
+
+
+// @todo
+add_filter('user_has_cap', 'post_ratings_has_cap', 10, 3);
+add_filter('map_meta_cap', 'post_ratings_map_cap_for_sa', 10, 4);
+
+function post_ratings_map_cap_for_sa($caps, $req_cap, $user_id, $args){
+
+  // $args[0] is the post ID
+  if(($req_cap === 'rate') && is_multisite() && is_super_admin($user_id) && isset($args[0]) && !PostRatings()->currentUserCanRate($args[0]))
+    $caps[] = 'do_not_allow';
+
+  return $caps;
+
+}
+
+function post_ratings_has_cap($allcaps, $caps, $args){
+
+  // $args[2] is the post ID
+  if($args[0] !== 'rate' && !isset($args[2]) || !PostRatings()->currentUserCanRate($args[2]))
+    return $allcaps;
+
+  $allcaps['rate'] = 1;
+
+  return $allcaps;
+}

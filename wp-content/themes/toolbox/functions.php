@@ -10,6 +10,14 @@ function load_typekit(){
 }
 add_action('wp_head', 'load_typekit');
 
+
+function remove_styles() {
+  wp_dequeue_style( 'colorbox');
+}
+
+add_action('wp_print_styles', 'remove_styles', 100);
+
+
 function remove_scripts() {
 	wp_dequeue_script('tabs');
 	wp_dequeue_script('dt_custom');
