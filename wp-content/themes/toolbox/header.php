@@ -24,8 +24,6 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<link rel="stylesheet" href="<?php echo bloginfo('stylesheet_url').'?'.filemtime(get_stylesheet_directory().'/style.css'); ?>">
-
 	<?php if(get_option('dt_custom_css') && get_option('dt_custom_css')!=""): ?>
 	<style type="text/css">
 		<?php echo stripslashes(get_option('dt_custom_css')); ?>

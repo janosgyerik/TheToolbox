@@ -1,5 +1,16 @@
 <?php
 
+function toolbox_enqueue_styles() {
+  wp_enqueue_style('main-style', get_bloginfo('stylesheet_url').'?'.filemtime(get_stylesheet_directory().'/style.css') , array(), '1', 'screen');
+}
+
+function toolbox_enqueue_scripts() {
+  wp_enqueue_script('toolbox', get_stylesheet_directory_uri() . '/javascripts/toolbox.js', 'jquery', '1.0', TRUE);
+}
+add_action('wp_enqueue_scripts', 'toolbox_enqueue_styles');
+add_action('wp_enqueue_scripts', 'toolbox_enqueue_scripts');
+
+
 add_filter( 'show_admin_bar', '__return_false' );
 
 function load_typekit(){
@@ -21,8 +32,6 @@ add_action('wp_print_styles', 'remove_styles', 100);
 function remove_scripts() {
 	wp_dequeue_script('tabs');
 	wp_dequeue_script('dt_custom');
-	wp_register_script('toolbox', get_stylesheet_directory_uri() . '/javascripts/toolbox.js', 'jquery', '1.0', TRUE);
-	wp_enqueue_script('toolbox');
 }
 add_action('init','remove_scripts', 100);
 
@@ -33,6 +42,7 @@ function remove_more_scripts(){
 	wp_dequeue_script('colorbox');
 	wp_dequeue_script('fitvids');
 	wp_dequeue_script('imagesLoaded');
+  wp_dequeue_script('superfish');
 }
 add_action('wp_print_scripts', 'remove_more_scripts', 100);
 

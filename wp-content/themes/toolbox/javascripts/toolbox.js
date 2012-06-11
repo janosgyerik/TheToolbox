@@ -213,48 +213,7 @@ $('#search-field').search('#masonry .item', function(on) {
 	jQuery('<div class="clear">&nbsp;</div>').insertAfter('.column-last');
 
 
-/*-----------------------------------------------------------------------------------*/
-/*	Superfish Settings - http://users.tpg.com.au/j_birch/plugins/superfish/
-/*-----------------------------------------------------------------------------------*/
 
-	jQuery('#primary-menu ul').superfish({
-		delay: 0,
-		animation: {opacity:'show', height:'show'},
-		speed: 'fast',
-		autoArrows: false,
-		dropShadows: false
-	});
-
-	jQuery("#primary-menu ul ul").each(
-		function (i) { // Preserves the mouse-over on top-level menu elements when hovering over children
-			jQuery(this).hover(
-
-				function() {
-
-					jQuery(this).parent().find("a").slice(0, 1).addClass("active");
-
-				}, function () {
-
-					jQuery(this).parent().find("a").slice(0, 1).removeClass("active");
-
-				}
-			);
-
-			var parent = jQuery(this).parent().outerWidth();
-
-			if(parent < 150) {
-				var diff = 150 - parent;
-				jQuery(this).css({
-					width: '150px',
-					marginLeft: -diff / 2
-				});
-			}
-			else {
-				jQuery(this).css('width', '100%');
-			}
-
-		}
-	);
 
 
 /*-----------------------------------------------------------------------------------*/
